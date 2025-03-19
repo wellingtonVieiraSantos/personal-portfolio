@@ -6,12 +6,15 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      boxShadow:{
+        button: '0 0 8px #4f46e5, inset 0 0 40px #4f46e5'
       },
+      transitionDuration:{
+        'long': '3s' 
+      }
     },
   },
   plugins: [],
