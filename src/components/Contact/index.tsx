@@ -22,13 +22,13 @@ export default function Contact() {
 
   return (
     <section
-      className='h-screen max-w-7xl m-auto flex flex-col justify-center gap-10'
-      id='contato'
+      className='h-fit py-10 max-w-7xl m-auto flex flex-col justify-center gap-10'
+      id='contact'
     >
       <header>
         <h2 className='text-center text-2xl'>Contato</h2>
       </header>
-      <div className='h-2/3 flex items-center justify-center'>
+      <div className='flex items-center justify-center'>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className='w-[min(100%,600px)] grid place-items-center gap-4 py-8 px-4'
@@ -43,7 +43,7 @@ export default function Contact() {
                 errors.name
                   ? 'border-red-700 dark:border-red-500'
                   : 'border-slate-500'
-              } bg-gray-200 dark:bg-gray-900 outline-none`}
+              } bg-gray-100 dark:bg-gray-900 outline-none`}
             />
             <User
               size={25}
@@ -67,7 +67,7 @@ export default function Contact() {
                 errors.email
                   ? 'border-red-700 dark:border-red-500'
                   : 'border-slate-500'
-              } bg-gray-200 dark:bg-gray-900 outline-none`}
+              } bg-gray-100 dark:bg-gray-900 outline-none`}
             />
             <Mail
               size={25}
@@ -89,7 +89,7 @@ export default function Contact() {
                 errors.topic
                   ? 'border-red-700 dark:border-red-500'
                   : 'border-slate-500'
-              } bg-gray-200 dark:bg-gray-900 outline-none`}
+              } bg-gray-100 dark:bg-gray-900 outline-none`}
             >
               <option value='contatoComercial'>Contato comercial</option>
               <option value='sugestoes'>Sugestões</option>
@@ -117,7 +117,7 @@ export default function Contact() {
                 errors.bodyMessage
                   ? 'border-red-700 dark:border-red-500'
                   : 'border-slate-500'
-              } rounded bg-gray-200 outline-none`}
+              } rounded bg-gray-100 outline-none`}
             ></textarea>
           </label>
           {errors?.bodyMessage && (

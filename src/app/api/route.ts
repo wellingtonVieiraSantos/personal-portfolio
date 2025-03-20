@@ -1,16 +1,13 @@
-
 /* import nodemailer from 'nodemailer'; */
 
-export async function GET( request: Request, response: Response) {
-  return Response.json(
-    {
-      name: 'teste',
-      email: 'teste@teste.com',
-      text: 'testando 1 testando 2 testando 3'
-    }
-  )
+export async function GET(request: Request, response: Response) {
+  return Response.json({
+    name: 'teste',
+    email: 'teste@teste.com',
+    topic: 'contatoComercial',
+    text: 'testando 1 testando 2 testando 3'
+  })
 }
-
 
 /* app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;

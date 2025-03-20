@@ -20,16 +20,14 @@ export default function ThemeSwitch() {
   }, [isAnimating])
 
   if (!mounted)
-    return (
-      <Loader width={40} height={40} className='animate-spin duration-long' />
-    )
+    return <Loader width={40} height={40} className='animate-spin' />
 
   const toggleTheme = () => {
     setIsAnimating(true)
     setTimeout(() => {
       resolvedTheme === 'dark' ? setTheme('light') : setTheme('dark')
       setIsAnimating(false)
-    }, 600)
+    }, 700)
   }
 
   return (
@@ -59,8 +57,8 @@ export default function ThemeSwitch() {
       </button>
       {isAnimating && (
         <motion.div
-          className={`z-10 absolute w-8 h-8 ${
-            resolvedTheme == 'dark' ? 'bg-gray-200' : 'bg-black'
+          className={` absolute w-8 h-8 ${
+            resolvedTheme == 'dark' ? 'bg-gray-100' : 'bg-black'
           } rounded-full`}
           initial={{ scale: 1, opacity: 1 }}
           animate={{ scale: 150, opacity: 1 }}

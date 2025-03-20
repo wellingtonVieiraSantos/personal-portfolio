@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR' suppressHydrationWarning className='scroll-smooth'>
-      <body className='dark:bg-gray-900 dark:text-slate-200 bg-gray-200 text-gray-700'>
+      <body className='dark:bg-gray-900 dark:text-slate-200 bg-gray-100 text-gray-700'>
         <Providers>
           <Header />
           {children}
