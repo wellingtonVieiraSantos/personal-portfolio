@@ -3,7 +3,7 @@ import { FormContactType } from '@/app/types/formTypes'
 import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { User, Mail, List } from 'lucide-react'
+import { User, Mail, List, Github, Linkedin } from 'lucide-react'
 
 export default function Contact() {
   const {
@@ -125,12 +125,32 @@ export default function Contact() {
               {errors.bodyMessage?.message}
             </span>
           )}
+
           <button
             type='submit'
             className='w-full text-xl text-gray-100 shadow-md shadow-gray-500 dark:shadow-none font-semibold bg-indigo-600 p-3 rounded hover:bg-indigo-800 transition-all'
           >
             Enviar
           </button>
+          <div className='w-full grid place-items-center gap-2 mt-2'>
+            <p className='place-self-start text-gray-500'>
+              Ou se preferir, entre em contato pelas redes:
+            </p>
+            <a
+              href=''
+              className='w-full border border-gray-500 hover:bg-blue-500 hover:text-slate-100 flex gap-2 justify-center text-lg p-2 rounded transition duration-500'
+            >
+              <Linkedin />
+              Linkedin
+            </a>
+            <a
+              href=''
+              className='w-full border border-gray-500 hover:bg-gray-800 hover:text-gray-100 dark:hover:bg-gray-100 dark:hover:text-gray-800 flex justify-center gap-2 text-lg p-2 rounded transition duration-500'
+            >
+              <Github />
+              Github
+            </a>
+          </div>
         </form>
       </div>
     </section>

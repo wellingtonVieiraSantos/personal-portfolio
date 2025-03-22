@@ -57,7 +57,7 @@ export default function ThemeSwitch() {
       </button>
       {isAnimating && (
         <motion.div
-          className={` absolute w-8 h-8 ${
+          className={`absolute w-8 h-8 ${
             resolvedTheme == 'dark' ? 'bg-gray-100' : 'bg-black'
           } rounded-full`}
           initial={{ scale: 1, opacity: 1 }}
