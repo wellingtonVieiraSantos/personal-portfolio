@@ -9,6 +9,21 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        'primary-bg': '#fffffe',
+        'secondary-bg': '#d1d1e9',
+        'primary-text': '#2b2c34',
+        'secondary-text': '#94a1b2',
+        'button-bg': '#6246ea',
+        'button-text': '#fffffe',
+        error: '#e45858',
+        'primary-bg-dark': '#16161a',
+        'secondary-bg-dark': '#242629',
+        'primary-text-dark': '#fffffe',
+        'secondary-text-dark': '#94a1b2',
+        'button-bg-dark': '#7f5af0',
+        'button-text-dark': '#fffffe'
+      },
       boxShadow: {
         button: '0 0 8px #4f46e5, inset 0 0 40px #4f46e5'
       },

@@ -1,12 +1,12 @@
 import CardAction from './CardAction'
 import CardActions from './CardActions'
 import CardContent from './CardContent'
-import CardHeader from './CardHeader'
+import CardImage from './CardImage'
 import CardRoot from './CardRoot'
 
 const Card = {
   Root: CardRoot,
-  Header: CardHeader,
+  Image: CardImage,
   Content: CardContent,
   Actions: CardActions,
   Action: CardAction

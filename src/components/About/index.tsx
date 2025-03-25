@@ -21,35 +21,35 @@ import { useTheme } from 'next-themes'
 
 export default function About() {
   const { resolvedTheme } = useTheme()
-  const isDark = resolvedTheme == 'dark' ? '#020617' : '#f3f4f6'
+  const isDark = resolvedTheme == 'dark' ? '#242629' : '#d1d1e9'
 
   return (
     <section className='min-h-screen m-auto grid place-items-center' id='about'>
-      <div className='w-full h-full bg-gray-100 dark:bg-slate-950 py-10 grid place-items-center'>
+      <div className='w-full h-full dark:bg-secondary-bg-dark bg-secondary-bg py-10 grid place-items-center'>
         <div
-          className='max-w-7xl grid grid-flow-row lg:grid-cols-[1fr_2fr] lg:grid-flow-col m-auto rounded xl:border
-         border-gray-400 dark:border-gray-700 py-10 px-4'
+          className='max-w-7xl grid grid-flow-row lg:grid-cols-[1fr_2fr] lg:grid-flow-col rounded
+         py-10 px-4 bg-primary-bg dark:bg-primary-bg-dark shadow'
         >
           <div className='flex flex-col items-center gap-4'>
             <Image
               src={perfil}
               alt='imagem de perfil'
-              width={200}
-              height={200}
+              width={300}
+              height={300}
               className='rounded-full'
             />
             <span className='text-lg'>Wellington Vieira</span>
             <div className='grid grid-flow-col gap-4'>
               <Link
                 href={'/#contact'}
-                className='hover:text-red-700 transition-all'
+                className='hover:text-error transition-all'
               >
                 <Mail />
               </Link>
               <Link
                 href={'https://github.com/wellingtonVieiraSantos'}
                 target='_blank'
-                className='hover:text-indigo-400 dark:hover:text-indigo-500 transition-all'
+                className='hover:text-button-bg dark:hover:text-button-bg-dark transition-all'
               >
                 <Github />
               </Link>
@@ -88,8 +88,8 @@ export default function About() {
           </div>
         </div>
         <div className='w-full hidden lg:block text-center'>
-          <h2 className='uppercase text-4xl mb-8 font-bold'>Skills</h2>
-          <div className=''>
+          <h2 className='uppercase text-4xl my-8 font-bold'>Skills</h2>
+          <div>
             <Marquee
               autoFill
               pauseOnHover
