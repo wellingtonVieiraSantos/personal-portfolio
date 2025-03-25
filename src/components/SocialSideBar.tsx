@@ -15,13 +15,15 @@ export default function SocialSideBar() {
         className='absolute bottom-10 left-6 flex flex-col px-4 gap-2 border-l-4 border-button-bg dark:border-button-bg-dark'
       >
         <a
-          href='#'
+          href='https://github.com/wellingtonVieiraSantos'
+          target='_blank'
           className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:to-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:text-primary-text-dark transition duration-300'
         >
           <Github />
         </a>
         <a
-          href='#'
+          href='https://www.linkedin.com/in/wellingtonsantos2022/'
+          target='_blank'
           className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:to-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:text-primary-text-dark transition duration-300'
         >
           <Linkedin />

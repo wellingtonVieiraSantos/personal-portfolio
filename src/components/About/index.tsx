@@ -64,7 +64,9 @@ export default function About() {
           </div>
           <div className='grid place-content-around px-4'>
             <header className='my-5'>
-              <h2 className='text-left text-4xl'>Sobre Mim</h2>
+              <h2 className='text-left font-montserrat-title text-4xl'>
+                Sobre Mim
+              </h2>
             </header>
             <p className='text-justify text-xl mb-1'>
               Sou um <strong>desenvolvedor front-end</strong> especializado em{' '}
@@ -88,7 +90,9 @@ export default function About() {
           </div>
         </div>
         <div className='w-full hidden lg:block text-center'>
-          <h2 className='uppercase text-4xl my-8 font-bold'>Skills</h2>
+          <h2 className='uppercase text-4xl my-8 font-montserrat-title'>
+            Skills
+          </h2>
           <div>
             <Marquee
               autoFill

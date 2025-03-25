@@ -6,8 +6,8 @@ import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Portifolio Ton',
-    template: '%s | Portifolio Ton'
+    default: 'Portifolio Ton | Desenvolvedor Next.js',
+    template: '%s | Desenvolvedor Next.js'
   },
   description: ''
 }

@@ -25,7 +25,7 @@ export default function CardRoot({ reverse = false, children }: Card) {
       whileInView='visible'
       viewport={{ once: true }}
       variants={variants}
-      className={`w-full sm:w-[600px] lg:w-full bg-secondary-bg dark:bg-secondary-bg-dark shadow flex flex-col lg:flex-row px-4 py-8 ${
+      className={`w-full sm:w-[600px] lg:w-full gap-2 flex flex-col lg:flex-row px-4 py-8 ${
         reverse && 'lg:flex-row-reverse'
       }`}
     >

@@ -10,7 +10,9 @@ export default function Portifolio() {
     >
       <div className='max-w-7xl py-4 px-2 my-10 grid grid-cols-1 gap-10'>
         <header>
-          <h2 className='text-center text-4xl my-8'>Portifolio</h2>
+          <h2 className='text-center text-4xl font-montserrat-title my-8'>
+            Portifolio
+          </h2>
         </header>
         {projects.map((project, index) => (
           <Card.Root key={index} reverse={index % 2 === 1}>
@@ -21,8 +23,15 @@ export default function Portifolio() {
               stack={project.stack}
             >
               <Card.Actions>
-                <Card.Action text='code' linkHref={project.links.githubCode} />
-                <Card.Action text='page' linkHref={project.links.website} />
+                {project.links.githubCode && (
+                  <Card.Action
+                    text='code'
+                    linkHref={project.links.githubCode}
+                  />
+                )}
+                {project.links.website && (
+                  <Card.Action text='page' linkHref={project.links.website} />
+                )}
               </Card.Actions>
             </Card.Content>
           </Card.Root>

@@ -1,5 +1,5 @@
 'use client'
-import { MessageCircleMore, ChevronDown } from 'lucide-react'
+import { MessageCircleMore } from 'lucide-react'
 import { motion } from 'motion/react'
 
 export default function HomePage() {
@@ -15,19 +15,23 @@ export default function HomePage() {
           x: 0,
           transition: { duration: 0.5, opacity: 'linear', ease: 'easeOut' }
         }}
-        className='max-w-[1200px] md:pl-10 flex flex-col items-center md:items-start md:text-left text-center gap-10 md:border-l-4 border-primary-text'
+        className='max-w-[1200px] md:pl-10 px-2 flex flex-col items-center md:items-start md:text-left text-center gap-10 md:border-l-4 border-secondary-text'
       >
-        <h1 className='text-4xl'>
+        <h1 className='text-3xl'>
           Olá, sou{' '}
-          <span className='block text-button-bg dark:text-button-bg-dark text-6xl mt-4'>
+          <span className='font-montserrat-title leading-none block text-button-bg dark:text-button-bg-dark text-6xl mt-4'>
             Wellington Vieira
           </span>
         </h1>
-        <p className='text-xl'>
+        <p className='text-2xl'>
           Desenvolvedor Front-end |{' '}
-          <span className='text-button-bg dark:text-button-bg-dark text-3xl'>
+          <span className='font-montserrat-title text-button-bg dark:text-button-bg-dark text-3xl'>
             Next.js
           </span>
+        </p>
+        <p className='text-lg text-center md:text-justify px-2'>
+          Esta à procura de um sistema profissional? Entre em contato para
+          resolver-mos seus problemas.{' '}
         </p>
         <div className='flex text-xl flex-col sm:flex-row gap-6'>
           <a
@@ -39,21 +43,6 @@ export default function HomePage() {
           </a>
         </div>
       </motion.div>
-      <motion.a
-        initial={{ opacity: 0, x: 0 }}
-        animate={{
-          opacity: 1,
-          x: '-50%',
-          transition: { delay: 0.7, duration: 0.4 }
-        }}
-        href='/#portifolio'
-        className='absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center text-xl gap-4'
-      >
-        <span className='border border-button-bg dark:border-button-bg-dark px-6 py-2 rounded'>
-          Ver Projetos
-        </span>
-        <ChevronDown size={35} className='animate-bounce' />
-      </motion.a>
     </section>
   )
 }

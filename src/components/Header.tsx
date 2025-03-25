@@ -9,16 +9,16 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
 
   return (
-    <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] place-items-center font-semibold sticky top-0 dark:bg-primary-bg-dark bg-primary-bg z-10'>
+    <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] place-items-center sticky top-0 dark:bg-primary-bg-dark bg-primary-bg z-10'>
       <div className='text-2xl flex items-center'>
         {'< '}{' '}
-        <span className='text-4xl text-button-bg dark:text-button-bg-dark'>
+        <span className='text-4xl text-button-bg dark:text-button-bg-dark font-montserrat-title'>
           T
         </span>{' '}
         {' />'}
       </div>
       <nav className='hidden w-full sm:block'>
-        <ul className='flex justify-evenly'>
+        <ul className='flex justify-evenly font-montserrat-title'>
           <Link href={'#home-page'}>
             <li className='relative before:w-0 before:h-[4px] dark:before:bg-button-bg-dark before:bg-button-bg before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'>
               Home
@@ -61,7 +61,7 @@ export default function Header() {
             className='absolute top-0 left-0 h-screen bg-button-bg dark:bg-button-bg-dark text-button-text'
             onClick={() => setOpenMenu(false)}
           >
-            <ul className='h-full flex flex-col items-left justify-evenly px-6'>
+            <ul className='h-full flex flex-col items-left justify-evenly px-6 font-montserrat-title'>
               <Link href={'#home-page'}>
                 <li className='flex gap-2'>
                   <House />
