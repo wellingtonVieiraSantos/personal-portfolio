@@ -27,7 +27,13 @@ export default function CardContent({
         <p className='font-semibold text-lg'>Stack</p>
         <div className='flex flex-wrap gap-2 capitalize'>
           {stack.map(stack => (
-            <span key={stack}>{stack}</span>
+            <span
+              key={stack}
+              className='relative  py-1 pl-6 pr-2 font-montserrat-title after:absolute after:left-1 after:top-[9px] 
+              after:w-3 after:h-3 after:bg-button-bg dark:after:bg-button-bg-dark after:rounded-full '
+            >
+              {stack}
+            </span>
           ))}
         </div>
       </div>

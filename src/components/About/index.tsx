@@ -18,6 +18,7 @@ import next from '../../assets/coloredIcons/nextjs.svg'
 import ts from '../../assets/coloredIcons/typescript.svg'
 import github from '../../assets/coloredIcons/github.svg'
 import { useTheme } from 'next-themes'
+import { motion } from 'motion/react'
 
 export default function About() {
   const { resolvedTheme } = useTheme()
@@ -26,7 +27,14 @@ export default function About() {
   return (
     <section className='min-h-screen m-auto grid place-items-center' id='about'>
       <div className='w-full h-full dark:bg-secondary-bg-dark bg-secondary-bg py-10 grid place-items-center'>
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            transition: { delay: 0.2, duration: 0.4 }
+          }}
+          viewport={{ once: true }}
           className='max-w-7xl grid grid-flow-row lg:grid-cols-[1fr_2fr] lg:grid-flow-col rounded
          py-10 px-4 bg-primary-bg dark:bg-primary-bg-dark shadow'
         >
@@ -88,7 +96,7 @@ export default function About() {
               qualidade. 🚀
             </p>
           </div>
-        </div>
+        </motion.div>
         <div className='w-full hidden lg:block text-center'>
           <h2 className='uppercase text-4xl my-8 font-montserrat-title'>
             Skills

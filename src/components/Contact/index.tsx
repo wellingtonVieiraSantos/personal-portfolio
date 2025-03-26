@@ -3,29 +3,15 @@ import { FormContactType } from '@/app/types/formTypes'
 import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import {
-  User,
-  Mail,
-  List,
-  Github,
-  Linkedin,
-  SendHorizonal,
-  MailCheck,
-  MailX
-} from 'lucide-react'
+import { ToastContainer, toast } from 'react-toastify'
+import { User, Mail, List, Github, Linkedin, SendHorizonal } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
-
-type StatusProps = {
-  message: string
-  type: 'success' | 'error'
-}
+import { motion } from 'motion/react'
 
 export default function Contact() {
-  const [status, setStatus] = useState<StatusProps | null>({
-    message: 'Testando a menssagem de erro ou de sucesso',
-    type: 'success'
-  })
+  const [isLoading, setIsLoading] = useState(false)
+  const { resolvedTheme } = useTheme()
 
   const {
     register,
@@ -38,6 +24,7 @@ export default function Contact() {
 
   const onSubmit = async (data: FormContactType) => {
     console.log(data)
+    setIsLoading(true)
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -47,20 +34,12 @@ export default function Contact() {
     const resJson = await response.json()
 
     if (response.ok) {
-      setStatus({ message: resJson.success, type: 'success' })
+      toast.success(resJson.success)
       reset()
-      setTimeout(() => {
-        setStatus(null)
-      }, 2000)
     } else {
-      setStatus({
-        message: resJson.error || 'Erro desconhecido',
-        type: 'error'
-      })
-      setTimeout(() => {
-        setStatus(null)
-      }, 2000)
+      toast.error(resJson.error || 'Erro desconhecido.')
     }
+    setIsLoading(false)
   }
 
   return (
@@ -72,7 +51,14 @@ export default function Contact() {
           </h2>
         </header>
         <div className='flex items-center justify-center'>
-          <form
+          <motion.form
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: 0.2, duration: 0.4 }
+            }}
+            viewport={{ once: true }}
             onSubmit={handleSubmit(onSubmit)}
             className='w-[min(100%,600px)] grid place-items-center gap-4 py-8 px-4'
           >
@@ -168,44 +154,22 @@ export default function Contact() {
                 {errors.bodyMessage?.message}
               </span>
             )}
-            <button
+            <motion.button
+              whileTap={{ scale: 0.95 }}
               type='submit'
+              disabled={isLoading}
               className='w-full text-xl text-button-text shadow font-montserrat-title
                 bg-button-bg dark:bg-button-bg-dark p-3 rounded hover:bg-button-bg-dark
                 dark:hover:bg-button-bg transition-all flex justify-center items-center gap-4'
             >
-              <SendHorizonal />
-              Enviar
-            </button>
-            <AnimatePresence>
-              {status?.message && (
-                <motion.div
-                  initial={{ opacity: 0, x: '50%' }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    transition: { delay: 0.1, duration: 0.4 }
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: '-50%',
-                    transition: { delay: 0.1, duration: 0.4 }
-                  }}
-                  className={`w-full p-3 border rounded text-lg sm:text-xl shadow ${
-                    status.type === 'error'
-                      ? 'border-error text-error'
-                      : 'border-green-700 text-green-700 dark:border-green-400 dark:text-green-400'
-                  } flex flex-wrap items-center justify-center gap-2 text-center`}
-                >
-                  {status.type == 'success' ? (
-                    <MailCheck size={25} />
-                  ) : (
-                    <MailX size={30} />
-                  )}
-                  {status?.message}
-                </motion.div>
-              )}
-            </AnimatePresence>
+              {!isLoading && <SendHorizonal />}
+              {isLoading ? 'Enviando...' : 'Enviar'}
+            </motion.button>
+            <ToastContainer
+              position='top-center'
+              autoClose={3000}
+              theme={`${resolvedTheme == 'dark' ? 'dark' : 'light'}`}
+            />
             <div className='w-full grid place-items-center gap-2 mt-2'>
               <p className='place-self-start text-secondary-text-dark'>
                 Ou se preferir, entre em contato pelas redes:
@@ -227,7 +191,7 @@ export default function Contact() {
                 Github
               </a>
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ export default function CardRoot({ reverse = false, children }: Card) {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { delay: reverse ? 0.5 : 0.3, duration: 0.4 }
+      transition: { delay: 0.2, duration: 0.5 }
     }
   }
 

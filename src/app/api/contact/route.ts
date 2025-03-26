@@ -26,12 +26,12 @@ export async function POST(req: Request) {
   })
 
   try {
-    /* await transporter.sendMail({
+    await transporter.sendMail({
       from: `"${name}" <${email}>`,
       to: process.env.RECIPIENT_EMAIL,
       subject: `Contato Portifolio - ${topic}`,
       text: bodyMessage
-    }) */
+    })
 
     return NextResponse.json(
       { success: 'E-mail enviado com sucesso.' },
