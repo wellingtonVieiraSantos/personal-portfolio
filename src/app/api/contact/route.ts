@@ -27,10 +27,11 @@ export async function POST(req: Request) {
 
   try {
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
+      from: `"${name}" <${process.env.EMAIL_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
       subject: `Contato Portifolio - ${topic}`,
-      text: bodyMessage
+      text: bodyMessage,
+      replyTo: email
     })
 
     return NextResponse.json(
