@@ -44,3 +44,11 @@ export async function POST(req: Request) {
     )
   }
 }
+
+/* temp */
+export async function GET() {
+  return NextResponse.json({
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_PASS: process.env.EMAIL_PASS ? 'OK' : 'NÃO DEFINIDO'
+  })
+}
