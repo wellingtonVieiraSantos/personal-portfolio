@@ -13,7 +13,7 @@ export default function CardImage({ src, alt }: Card) {
         alt={alt}
         width={400}
         height={300}
-        className='rounded shadow-lg lg:w-full'
+        className='rounded shadow-lg w-auto h-auto'
       />
     </div>
   )

@@ -19,7 +19,7 @@ export default function Portifolio() {
             <Card.Image src={project.img} alt={project.title} />
             <Card.Content
               title={project.title}
-              description='lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom lorem ipsom '
+              description={project.description}
               stack={project.stack}
             >
               <Card.Actions>

@@ -23,7 +23,6 @@ export default function Contact() {
   })
 
   const onSubmit = async (data: FormContactType) => {
-    console.log(data)
     setIsLoading(true)
     const response = await fetch('/api/contact', {
       method: 'POST',
