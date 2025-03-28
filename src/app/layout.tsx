@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Providers } from './providers'
+import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: {
@@ -19,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR' suppressHydrationWarning className='scroll-smooth'>
+      <Head>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <body className='dark:bg-primary-bg-dark dark:text-primary-text-dark bg-primary-bg text-primary-text min-h-dvh'>
         <Providers>
           <Header />
