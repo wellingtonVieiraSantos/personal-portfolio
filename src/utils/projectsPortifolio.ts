@@ -8,7 +8,7 @@ export const projects = [
     title: 'Criatividade em Matemática',
     img: criatividadeEmMatematica,
     description:
-      'Site no formato edital, feito para promover um curso de nível superior para professores de matemática. Criado de forma totalmente responsiva e performática.',
+      'Site, no formato edital, feito para promover um curso de nível superior para professores de matemática. Criado de forma totalmente responsiva e performática.',
     stack: ['React', 'TypeScript', 'Tailwind', 'React Router Dom v6', 'Vite'],
     links: {
       githubCode:

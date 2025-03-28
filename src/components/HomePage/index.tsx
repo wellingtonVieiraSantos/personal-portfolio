@@ -31,7 +31,7 @@ export default function HomePage() {
         </p>
         <p className='text-lg text-center md:text-justify px-2'>
           Esta à procura de um sistema profissional? Entre em contato para
-          resolver-mos seus problemas.{' '}
+          resolvermos seus problemas.{' '}
         </p>
         <div className='flex text-xl flex-col sm:flex-row gap-6'>
           <a

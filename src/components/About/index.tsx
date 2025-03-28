@@ -3,27 +3,10 @@ import Image from 'next/image'
 import perfil from '../../assets/perfil.png'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
-import Marquee from 'react-fast-marquee'
-import html from '../../assets/coloredIcons/html5.svg'
-import css from '../../assets/coloredIcons/css3.svg'
-import js from '../../assets/coloredIcons/js.svg'
-import react from '../../assets/coloredIcons/react.svg'
-import tailwind from '../../assets/coloredIcons/tailwindcss.svg'
-import git from '../../assets/coloredIcons/git.svg'
-import node from '../../assets/coloredIcons/node.svg'
-import sql from '../../assets/coloredIcons/sql.svg'
-import api from '../../assets/coloredIcons/api.svg'
-import express from '../../assets/coloredIcons/express.svg'
-import next from '../../assets/coloredIcons/nextjs.svg'
-import ts from '../../assets/coloredIcons/typescript.svg'
-import github from '../../assets/coloredIcons/github.svg'
-import { useTheme } from 'next-themes'
 import { motion } from 'motion/react'
+import SkillSmoothTabs from './SkillsSmoothTabs'
 
 export default function About() {
-  const { resolvedTheme } = useTheme()
-  const isDark = resolvedTheme == 'dark' ? '#242629' : '#d1d1e9'
-
   return (
     <section className='min-h-screen m-auto grid place-items-center' id='about'>
       <div className='w-full h-full dark:bg-secondary-bg-dark bg-secondary-bg py-10 grid place-items-center'>
@@ -97,111 +80,9 @@ export default function About() {
             </p>
           </div>
         </motion.div>
-        <div className='w-full hidden lg:block text-center'>
-          <h2 className='uppercase text-4xl my-8 font-montserrat-title'>
-            Skills
-          </h2>
-          <div>
-            <Marquee
-              autoFill
-              pauseOnHover
-              speed={40}
-              delay={0}
-              gradient
-              gradientWidth={200}
-              gradientColor={isDark}
-              className='max-w-5xl m-auto h-full my-4 '
-            >
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image src={html} alt='html' width={30} height={30} />
-                <span className='text-xl'>HTML</span>
-              </div>
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image src={css} alt='html' width={30} height={30} />
-                <span className='text-xl'>CSS</span>
-              </div>
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image src={js} alt='html' width={30} height={30} />
-                <span className='text-xl'>JavaScrypt</span>
-              </div>
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image src={react} alt='html' width={30} height={30} />
-                <span className='text-xl'>React</span>
-              </div>
-              <div className='mx-8 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={tailwind}
-                  alt='html'
-                  width={120}
-                  height={120}
-                  className='dark:invert'
-                />
-              </div>
-              <div className='mx-8 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={git}
-                  alt='html'
-                  width={100}
-                  height={100}
-                  className='dark:invert'
-                />
-              </div>
-              <div className='mx-8 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={node}
-                  alt='html'
-                  width={100}
-                  height={100}
-                  className='dark:invert'
-                />
-              </div>
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image src={api} alt='html' width={30} height={30} />
-                <span className='text-xl'>Api Rest</span>
-              </div>
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image src={sql} alt='html' width={30} height={30} />
-                <span className='text-xl'>Sql DB</span>
-              </div>
-              <div className='mx-8 flex gap-2 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={express}
-                  alt='html'
-                  width={30}
-                  height={30}
-                  className='dark:invert'
-                />
-                <span className='text-xl'>Express</span>
-              </div>
-              <div className='mx-8 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={next}
-                  alt='html'
-                  width={100}
-                  height={100}
-                  className='dark:invert'
-                />
-              </div>
-              <div className='mx-8 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={ts}
-                  alt='html'
-                  width={100}
-                  height={100}
-                  className='dark:invert'
-                />
-              </div>
-              <div className='mx-8 grayscale hover:grayscale-0 transition duration-500'>
-                <Image
-                  src={github}
-                  alt='html'
-                  width={100}
-                  height={100}
-                  className='dark:invert'
-                />
-              </div>
-            </Marquee>
-          </div>
+        <div className='w-full text-center '>
+          <h2 className=' text-4xl my-20 font-montserrat-title'>Habilidades</h2>
+          <SkillSmoothTabs />
         </div>
       </div>
     </section>

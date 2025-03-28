@@ -9,7 +9,7 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
 
   return (
-    <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] place-items-center sticky top-0 dark:bg-primary-bg-dark bg-primary-bg z-10'>
+    <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] place-items-center sticky top-0 dark:bg-primary-bg-dark bg-primary-bg z-30'>
       <div className='text-2xl flex items-center'>
         {'< '}{' '}
         <span className='text-4xl text-button-bg dark:text-button-bg-dark font-montserrat-title'>
