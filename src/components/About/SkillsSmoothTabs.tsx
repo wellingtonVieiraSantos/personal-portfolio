@@ -42,7 +42,7 @@ export default function SkillSmoothTabs() {
         </motion.div>
       </AnimatePresence>
 
-      <ul className='flex sm:flex-wrap overflow-x-scroll overscroll-x-contain gap-2'>
+      <ul className='flex sm:flex-wrap overflow-x-scroll sm:overflow-auto gap-2'>
         {skills?.map(skill => (
           <button
             key={skill.id}
