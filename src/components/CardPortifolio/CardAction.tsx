@@ -11,8 +11,7 @@ export default function CardAction({ linkHref, text }: CardActionProps) {
       href={linkHref}
       target='_blank'
       className='bg-button-bg 
-       text-button-text dark:bg-button-bg-dark py-2 px-6 rounded flex items-center gap-2 text-lg
-       transition duration-300'
+       text-button-text dark:text-button-text-dark dark:bg-button-bg-dark py-2 px-6 rounded flex items-center gap-2 font-montserrat-title'
     >
       {text == 'code' ? <CodeXml /> : <PanelsTopLeft />}
       {text}

@@ -155,11 +155,11 @@ export default function Contact() {
             )}
             <motion.button
               whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.01 }}
               type='submit'
               disabled={isLoading}
-              className='w-full text-xl text-button-text shadow font-montserrat-title
-                bg-button-bg dark:bg-button-bg-dark p-3 rounded hover:bg-button-bg-dark
-                dark:hover:bg-button-bg transition-all flex justify-center items-center gap-4'
+              className='w-full text-lg text-button-text dark:text-button-text-dark font-montserrat-title
+                bg-button-bg dark:bg-button-bg-dark p-3 rounded flex justify-center items-center gap-4'
             >
               {!isLoading && <SendHorizonal />}
               {isLoading ? 'Enviando...' : 'Enviar'}

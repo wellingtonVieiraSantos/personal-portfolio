@@ -17,14 +17,14 @@ export default function SocialSideBar() {
         <a
           href='https://github.com/wellingtonVieiraSantos'
           target='_blank'
-          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:to-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:text-primary-text-dark transition duration-300'
+          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:bg-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:bg-transparent dark:hover:text-primary-text-dark transition duration-300'
         >
           <Github />
         </a>
         <a
           href='https://www.linkedin.com/in/wellingtonsantos2022/'
           target='_blank'
-          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:to-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:text-primary-text-dark transition duration-300'
+          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:bg-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:bg-transparent dark:hover:text-primary-text-dark transition duration-300'
         >
           <Linkedin />
         </a>
