@@ -14,20 +14,22 @@ export default function SocialSideBar() {
         }}
         className='absolute bottom-10 left-6 flex flex-col px-4 gap-2 border-l-4 border-button-bg dark:border-button-bg-dark'
       >
-        <a
+        <motion.a
+          whileHover={{ scale: 1.1 }}
           href='https://github.com/wellingtonVieiraSantos'
           target='_blank'
-          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:bg-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:bg-transparent dark:hover:text-primary-text-dark transition duration-300'
+          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:bg-button-bg-dark dark:text-primary-text text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:bg-transparent dark:hover:text-primary-text-dark'
         >
           <Github />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          whileHover={{ scale: 1.1 }}
           href='https://www.linkedin.com/in/wellingtonsantos2022/'
           target='_blank'
-          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:bg-button-bg-dark text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:bg-transparent dark:hover:text-primary-text-dark transition duration-300'
+          className='border border-primary-text dark:border-button-text p-2 bg-button-bg dark:bg-button-bg-dark dark:text-primary-text text-primary-text-dark rounded hover:bg-transparent hover:text-primary-text dark:hover:bg-transparent dark:hover:text-primary-text-dark'
         >
           <Linkedin />
-        </a>
+        </motion.a>
       </motion.div>
     </aside>
   )

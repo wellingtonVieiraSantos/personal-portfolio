@@ -58,7 +58,7 @@ export default function Header() {
               x: -100,
               transition: { duration: 0.3 }
             }}
-            className='absolute top-0 left-0 h-screen bg-button-bg dark:bg-button-bg-dark text-button-text'
+            className='absolute top-0 left-0 h-screen bg-button-bg dark:bg-secondary-bg-dark text-button-text'
             onClick={() => setOpenMenu(false)}
           >
             <ul className='h-full flex flex-col items-left justify-evenly px-6 font-montserrat-title'>
