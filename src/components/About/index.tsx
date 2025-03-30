@@ -8,7 +8,7 @@ import SkillSmoothTabs from './SkillsSmoothTabs'
 export default function About() {
   return (
     <section className='min-h-screen m-auto grid place-items-center' id='about'>
-      <div className='w-full h-full dark:bg-secondary-bg-dark bg-secondary-bg py-10 grid place-items-center'>
+      <div className='w-full h-full dark:bg-primary-bg-dark xl:dark:bg-secondary-bg-dark xl:bg-secondary-bg py-10 grid place-items-center'>
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{
@@ -18,7 +18,7 @@ export default function About() {
           }}
           viewport={{ once: true }}
           className='max-w-7xl grid grid-flow-row lg:grid-cols-[1fr_2fr] lg:grid-flow-col rounded
-         py-10 px-4 bg-primary-bg dark:bg-primary-bg-dark shadow'
+         py-10 px-4 bg-primary-bg dark:bg-primary-bg-dark xl:shadow'
         >
           <div className='flex flex-col items-center gap-4'>
             <Image

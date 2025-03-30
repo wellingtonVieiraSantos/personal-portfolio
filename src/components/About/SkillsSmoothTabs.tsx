@@ -15,7 +15,7 @@ export default function SkillSmoothTabs() {
         transition: { delay: 0.2, duration: 0.4 }
       }}
       viewport={{ once: true }}
-      className='w-full max-w-4xl bg-primary-bg dark:bg-primary-bg-dark lg:rounded m-auto grid grid-flow-row p-4 overflow-hidden shadow'
+      className='w-full max-w-7xl bg-secondary-bg xl:bg-primary-bg dark:bg-secondary-bg-dark  xl:dark:bg-primary-bg-dark lg:rounded m-auto grid grid-flow-row p-4 overflow-hidden xl:shadow'
     >
       <AnimatePresence mode='wait'>
         <motion.div
@@ -47,7 +47,7 @@ export default function SkillSmoothTabs() {
           <button
             key={skill.id}
             onClick={() => setActive(skill.id)}
-            className={`py-2 px-4 flex flex-1 justify-center relative border border-secondary-bg dark:border-secondary-bg-dark rounded ${
+            className={`py-2 px-4 flex flex-1 justify-center relative border border-primary-bg xl:border-secondary-bg dark:border-primary-bg-dark xl:dark:border-secondary-bg-dark rounded ${
               active === skill.id &&
               'text-button-text dark:text-secondary-bg-dark'
             }  font-montserrat-title`}
