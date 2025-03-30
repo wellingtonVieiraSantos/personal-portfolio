@@ -15,7 +15,7 @@ export default function SkillSmoothTabs() {
         transition: { delay: 0.2, duration: 0.4 }
       }}
       viewport={{ once: true }}
-      className='w-full max-w-7xl bg-secondary-bg xl:bg-primary-bg dark:bg-secondary-bg-dark  xl:dark:bg-primary-bg-dark lg:rounded m-auto grid grid-flow-row p-4 overflow-hidden xl:shadow'
+      className='w-full max-w-4xl bg-secondary-bg xl:bg-primary-bg dark:bg-secondary-bg-dark xl:dark:bg-primary-bg-dark lg:rounded m-auto grid grid-flow-row p-4 overflow-hidden lg:shadow'
     >
       <AnimatePresence mode='wait'>
         <motion.div

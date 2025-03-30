@@ -17,7 +17,7 @@ export default function CardContent({
     <div
       className='lg:w-2/3 py-4 lg:px-6 grid place-content-between gap-4 overflow-hidden
      bg-secondary-bg dark:bg-secondary-bg-dark shadow rounded px-2
-     hover:shadow-button-bg dark:hover:shadow-button-bg-dark hover:shadow-[0px_0px_5px] transition duration-500'
+     hover:shadow-button-bg dark:hover:shadow-button-bg-dark hover:shadow-[0px_0px_5px] transition duration-500 text-lg'
     >
       <header>
         <h2 className='text-3xl font-montserrat-title'>{title}</h2>
