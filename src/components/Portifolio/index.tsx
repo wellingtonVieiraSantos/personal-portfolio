@@ -1,6 +1,8 @@
 'use client'
 import Card from '@/components/CardPortifolio'
 import { projects } from '../../utils/projectsPortifolio'
+import Button from '../Button'
+import { CodeXml, PanelsTopLeft } from 'lucide-react'
 
 export default function Portifolio() {
   return (
@@ -24,13 +26,24 @@ export default function Portifolio() {
             >
               <Card.Actions>
                 {project.links.githubCode && (
-                  <Card.Action
+                  <Button.Link
+                    textLink={project.links.githubCode}
+                    type='primary'
                     text='code'
-                    linkHref={project.links.githubCode}
+                    icon={CodeXml}
+                    className='px-6'
+                    target='_blank'
                   />
                 )}
                 {project.links.website && (
-                  <Card.Action text='page' linkHref={project.links.website} />
+                  <Button.Link
+                    textLink={project.links.website}
+                    type='primary'
+                    text='page'
+                    icon={PanelsTopLeft}
+                    className='px-6'
+                    target='_blank'
+                  />
                 )}
               </Card.Actions>
             </Card.Content>

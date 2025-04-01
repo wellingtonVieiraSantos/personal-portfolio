@@ -1,12 +1,26 @@
 'use client'
-import Link from 'next/link'
 import ThemeSwitch from '@/components/ThemeSwitch'
-import { Menu, X, House, User, Briefcase, SendHorizonal } from 'lucide-react'
-import { useState } from 'react'
+import { Menu, X, House, User, Briefcase, SendHorizontal } from 'lucide-react'
+import { ElementType, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
+import Button from './Button'
+
+type navLinksProps = {
+  id: number
+  name: string
+  icon: ElementType
+}
+
+const navLinks: navLinksProps[] = [
+  { id: 1, name: 'home', icon: House },
+  { id: 2, name: 'sobre', icon: User },
+  { id: 3, name: 'portifolio', icon: Briefcase },
+  { id: 4, name: 'contato', icon: SendHorizontal }
+]
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false)
+  const [active, setActive] = useState<number>(navLinks[0].id)
 
   return (
     <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] place-items-center sticky top-0 dark:bg-primary-bg-dark bg-primary-bg z-30'>
@@ -18,28 +32,29 @@ export default function Header() {
         {' />'}
       </div>
       <nav className='hidden w-full sm:block'>
-        <ul className='flex justify-evenly font-montserrat-title'>
-          <Link href={'#home-page'}>
-            <li className='relative before:w-0 before:h-[4px] dark:before:bg-button-bg-dark before:bg-button-bg before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'>
-              Home
+        <motion.ul className='flex justify-evenly font-montserrat-title'>
+          {navLinks.map(link => (
+            <li
+              key={link.id}
+              className='relative'
+              onClick={() => setActive(link.id)}
+            >
+              <Button.Link
+                whileHover={{ scale: 1 }}
+                textLink={'#' + link.name}
+                type='secondary'
+                text={link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+                className='hover:text-button-bg dark:hover:text-button-bg-dark'
+              />
+              {link.id === active && (
+                <motion.div
+                  layoutId='nav-link'
+                  className='absolute h-1 bottom-0 w-full rounded-full bg-button-bg dark:bg-button-bg-dark'
+                />
+              )}
             </li>
-          </Link>
-          <Link href={'/#about'}>
-            <li className='relative before:w-0 before:h-[4px] dark:before:bg-button-bg-dark before:bg-button-bg before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'>
-              Sobre
-            </li>
-          </Link>
-          <Link href={'/#portifolio'}>
-            <li className='relative before:w-0 before:h-[4px] dark:before:bg-button-bg-dark before:bg-button-bg before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'>
-              Portifolio
-            </li>
-          </Link>
-          <Link href={'/#contact'}>
-            <li className='relative before:w-0 before:h-[4px] dark:before:bg-button-bg-dark before:bg-button-bg before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'>
-              Contato
-            </li>
-          </Link>
-        </ul>
+          ))}
+        </motion.ul>
       </nav>
       <div className='sm:hidden' onClick={() => setOpenMenu(prev => !prev)}>
         {openMenu ? <X size={35} /> : <Menu size={35} />}
@@ -62,30 +77,17 @@ export default function Header() {
             onClick={() => setOpenMenu(false)}
           >
             <ul className='h-full flex flex-col items-left justify-evenly px-6 font-montserrat-title'>
-              <Link href={'#home-page'}>
-                <li className='flex gap-2'>
-                  <House />
-                  Home
+              {navLinks.map(link => (
+                <li key={link.id}>
+                  <Button.Link
+                    textLink={'#' + link.name}
+                    type='secondary'
+                    text={link.name}
+                    icon={link.icon}
+                    className='p-0'
+                  />
                 </li>
-              </Link>
-              <Link href={'/#about'}>
-                <li className='flex gap-2'>
-                  <User />
-                  Sobre
-                </li>
-              </Link>
-              <Link href={'/#portifolio'}>
-                <li className='flex gap-2'>
-                  <Briefcase />
-                  Portifolio
-                </li>
-              </Link>
-              <Link href={'/#contact'}>
-                <li className='flex gap-2'>
-                  <SendHorizonal />
-                  Contato
-                </li>
-              </Link>
+              ))}
             </ul>
           </motion.div>
         )}

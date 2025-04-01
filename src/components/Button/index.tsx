@@ -1,7 +1,7 @@
-import ButtonRoot from "./ButtonRoot"
+import LinkCustom from './LinkCustom'
 
 const Button = {
-  Root: ButtonRoot
+  Link: LinkCustom
 }
 
 export default Button

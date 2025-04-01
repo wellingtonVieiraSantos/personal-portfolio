@@ -4,10 +4,11 @@ import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify'
-import { User, Mail, List, Github, Linkedin, SendHorizonal } from 'lucide-react'
+import { User, Mail, List, SendHorizonal, Github, Linkedin } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
 import { motion } from 'motion/react'
+import Button from '../Button'
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false)
@@ -42,7 +43,7 @@ export default function Contact() {
   }
 
   return (
-    <section className='w-full h-fit dark:bg-secondary-bg-dark' id='contact'>
+    <section className='w-full h-fit dark:bg-secondary-bg-dark' id='contato'>
       <div className='max-w-7xl py-10 m-auto flex flex-col justify-center gap-10'>
         <header>
           <h2 className='text-center text-4xl font-montserrat-title'>
@@ -173,22 +174,27 @@ export default function Contact() {
               <p className='place-self-start text-secondary-text-dark'>
                 Ou se preferir, entre em contato pelas redes:
               </p>
-              <a
-                href='https://www.linkedin.com/in/wellingtonsantos2022/'
+
+              <Button.Link
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                type='secondary'
+                textLink='https://www.linkedin.com/in/wellingtonsantos2022/'
+                text='Linkedin'
+                icon={Linkedin}
                 target='_blank'
-                className='w-full font-montserrat-title border border-primary-text dark:border-secondary-text-dark hover:bg-blue-500 hover:text-slate-100 flex gap-2 justify-center text-lg p-3 rounded transition duration-500'
-              >
-                <Linkedin />
-                Linkedin
-              </a>
-              <a
-                href='https://github.com/wellingtonVieiraSantos'
+                className='border border-primary-text dark:border-secondary-text w-full justify-center'
+              />
+              <Button.Link
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                type='secondary'
+                textLink='https://github.com/wellingtonVieiraSantos'
+                text='Github'
+                icon={Github}
                 target='_blank'
-                className='w-full font-montserrat-title border border-primary-text dark:border-secondary-text-dark hover:bg-primary-bg-dark hover:text-primary-text-dark dark:hover:bg-primary-bg dark:hover:text-primary-text flex justify-center gap-2 text-lg p-3 rounded transition duration-500'
-              >
-                <Github />
-                Github
-              </a>
+                className='border border-primary-text dark:border-secondary-text w-full justify-center'
+              />
             </div>
           </motion.form>
         </div>

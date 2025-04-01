@@ -26,12 +26,6 @@ const config: Config = {
       },
       fontFamily: {
         'montserrat-title': ['Montserrat', 'sans-serif']
-      },
-      boxShadow: {
-        button: '0 0 8px #4f46e5, inset 0 0 40px #4f46e5'
-      },
-      transitionDuration: {
-        long: '3s'
       }
     }
   },

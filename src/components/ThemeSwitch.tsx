@@ -9,7 +9,9 @@ export default function ThemeSwitch() {
   const { setTheme, resolvedTheme } = useTheme()
   const [isAnimating, setIsAnimating] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     if (isAnimating) {

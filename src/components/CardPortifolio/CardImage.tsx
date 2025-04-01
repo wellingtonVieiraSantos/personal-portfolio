@@ -7,13 +7,13 @@ type Card = {
 
 export default function CardImage({ src, alt }: Card) {
   return (
-    <div className='lg:w-1/3 rounded opacity-70 hover:opacity-100 transiton duration-500'>
+    <div className='lg:w-1/3 rounded opacity-70 hover:opacity-100 transiton duration-500 overflow-hidden'>
       <Image
         src={src}
         alt={alt}
-        width={400}
-        height={300}
-        className='rounded shadow-lg w-full h-full'
+        width={1900}
+        height={900}
+        className='rounded shadow-lg w-full h-full object-cover'
       />
     </div>
   )

@@ -1,4 +1,3 @@
-import CardAction from './CardAction'
 import CardActions from './CardActions'
 import CardContent from './CardContent'
 import CardImage from './CardImage'
@@ -8,8 +7,7 @@ const Card = {
   Root: CardRoot,
   Image: CardImage,
   Content: CardContent,
-  Actions: CardActions,
-  Action: CardAction
+  Actions: CardActions
 }
 
 export default Card

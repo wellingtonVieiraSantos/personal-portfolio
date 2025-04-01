@@ -1,12 +1,13 @@
 'use client'
-import { MessageCircleMore } from 'lucide-react'
 import { motion } from 'motion/react'
+import Button from '../Button'
+import { MessageCircleMore } from 'lucide-react'
 
 export default function HomePage() {
   return (
     <section
       className='min-h-screen relative grid place-content-center'
-      id='home-page'
+      id='home'
     >
       <motion.div
         initial={{ opacity: 0, x: -100 }}
@@ -33,14 +34,14 @@ export default function HomePage() {
           Esta à procura de um sistema profissional? Entre em contato para
           resolvermos seus problemas.{' '}
         </p>
-        <motion.a
-          whileHover={{ scale: 1.1 }}
-          href='#contact'
-          className='flex text-lg font-montserrat-title gap-4 items-center text-button-text dark:text-button-text-dark border border-button-bg rounded bg-button-bg dark:bg-button-bg-dark px-8 py-2'
-        >
-          Contato
-          <MessageCircleMore />
-        </motion.a>
+        <Button.Link
+          textLink='#contato'
+          type='primary'
+          text='Contato'
+          icon={MessageCircleMore}
+          iconPosition='right'
+          className='px-8'
+        />
       </motion.div>
     </section>
   )
