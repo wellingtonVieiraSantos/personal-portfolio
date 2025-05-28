@@ -6,7 +6,7 @@ import { MessageCircleMore } from 'lucide-react'
 export default function HomePage() {
   return (
     <section
-      className='min-h-screen relative grid place-content-center'
+      className='min-h-screen relative grid place-content-center bg-primary-bg text-primary-text'
       id='home'
     >
       <motion.div
@@ -30,7 +30,7 @@ export default function HomePage() {
             Next.js
           </span>
         </p>
-        <p className='md:text-lg text-center md:text-justify px-2'>
+        <p className='md:text-lg text-center md:text-justify px-2 text-primary-text/70'>
           Esta à procura de um sistema profissional? Entre em contato para
           resolvermos seus problemas.{' '}
         </p>

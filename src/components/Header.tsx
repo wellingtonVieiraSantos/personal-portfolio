@@ -23,10 +23,10 @@ export default function Header() {
   const [active, setActive] = useState<number>(navLinks[0].id)
 
   return (
-    <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] place-items-center sticky top-0 dark:bg-primary-bg-dark bg-primary-bg z-30'>
+    <header className='h-20 grid grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_3fr_1fr] font-montserrat place-items-center sticky top-0 bg-primary-bg text-primary-text z-30'>
       <div className='text-2xl flex items-center'>
         {'< '}{' '}
-        <span className='text-4xl text-button-bg dark:text-button-bg-dark font-montserrat-title'>
+        <span className='text-4xl text-button-bg dark:text-button-bg-dark'>
           T
         </span>{' '}
         {' />'}
@@ -73,7 +73,7 @@ export default function Header() {
               x: -100,
               transition: { duration: 0.3 }
             }}
-            className='absolute top-0 left-0 h-screen bg-button-bg dark:bg-secondary-bg-dark text-button-text'
+            className='absolute top-0 left-0 h-screen bg-button-bg text-primary-bg'
             onClick={() => setOpenMenu(false)}
           >
             <ul className='h-full flex flex-col items-left justify-evenly px-6 font-montserrat-title'>

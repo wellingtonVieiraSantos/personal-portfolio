@@ -7,14 +7,12 @@ import { CodeXml, PanelsTopLeft } from 'lucide-react'
 export default function Portifolio() {
   return (
     <section
-      className='min-h-screen m-auto grid place-content-center my-20'
+      className='min-h-screen m-auto grid place-content-center bg-primary-bg text-primary-text'
       id='portifolio'
     >
       <div className='max-w-7xl py-4 px-2 my-10 grid grid-cols-1 gap-10'>
         <header>
-          <h2 className='text-center text-4xl font-montserrat-title my-8'>
-            Portifolio
-          </h2>
+          <h2 className='text-center text-4xl my-8'>Portifolio</h2>
         </header>
         {projects.map((project, index) => (
           <Card.Root key={index} reverse={index % 2 === 1}>

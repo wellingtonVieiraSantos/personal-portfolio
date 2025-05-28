@@ -15,7 +15,7 @@ export default function SkillSmoothTabs() {
         transition: { delay: 0.2, duration: 0.4 }
       }}
       viewport={{ once: true }}
-      className='w-full max-w-4xl bg-secondary-bg xl:bg-primary-bg dark:bg-secondary-bg-dark xl:dark:bg-primary-bg-dark lg:rounded m-auto grid grid-flow-row p-4 overflow-hidden lg:shadow'
+      className='w-full max-w-4xl bg-secondary-bg xl:bg-primary-bg lg:rounded-sm m-auto grid grid-flow-row p-4 overflow-hidden lg:shadow-sm'
     >
       <AnimatePresence mode='wait'>
         <motion.div
@@ -29,10 +29,10 @@ export default function SkillSmoothTabs() {
           <Image
             src={skills.find(skill => skill.id === active)?.img}
             alt={skills.find(skill => skill.id === active)?.title + ' logo'}
-            className='h-16 w-auto border border-secondary-text dark:bg-white p-2 rounded'
+            className='h-16 w-auto border border-secondary-text bg-white p-2 rounded-sm'
           />
           <div className='grid place-items-start gap-2'>
-            <h3 className='text-2xl font-montserrat-title'>
+            <h3 className='text-2xl text-primary-text'>
               {skills.find(skill => skill.id === active)?.title}
             </h3>
             <p className=' m-auto text-justify text-lg '>
@@ -47,16 +47,15 @@ export default function SkillSmoothTabs() {
           <button
             key={skill.id}
             onClick={() => setActive(skill.id)}
-            className={`py-2 px-4 flex flex-1 justify-center relative border border-primary-bg xl:border-secondary-bg dark:border-primary-bg-dark xl:dark:border-secondary-bg-dark rounded ${
-              active === skill.id &&
-              'text-button-text dark:text-secondary-bg-dark'
+            className={`py-2 px-4 flex flex-1 justify-center relative border border-primary-bg xl:border-secondary-bg rounded ${
+              active === skill.id && 'text-button-text'
             }  font-montserrat-title`}
           >
             <li className='z-10 '>{skill.title}</li>
             {active === skill.id && (
               <motion.div
                 layoutId='background-button'
-                className='absolute left-0 w-full rounded bottom-0 h-full bg-button-bg dark:bg-button-bg-dark'
+                className='absolute left-0 w-full rounded-sm bottom-0 h-full bg-button-bg'
               />
             )}
           </button>

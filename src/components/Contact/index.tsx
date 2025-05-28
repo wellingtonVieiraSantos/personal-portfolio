@@ -1,5 +1,5 @@
 'use client'
-import { FormContactType } from '@/app/types/formTypes'
+import { FormContactType } from '@/types'
 import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -43,12 +43,13 @@ export default function Contact() {
   }
 
   return (
-    <section className='w-full h-fit dark:bg-secondary-bg-dark' id='contato'>
+    <section
+      className='w-full h-fit bg-secondary-bg text-primary-text'
+      id='contato'
+    >
       <div className='max-w-7xl py-10 m-auto flex flex-col justify-center gap-10'>
         <header>
-          <h2 className='text-center text-4xl font-montserrat-title'>
-            Contato
-          </h2>
+          <h2 className='text-center text-4xl'>Contato</h2>
         </header>
         <div className='flex items-center justify-center'>
           <motion.form
@@ -63,16 +64,14 @@ export default function Contact() {
             className='w-[min(100%,600px)] grid place-items-center gap-4 py-8 px-4'
           >
             <label className='w-full grid gap-2 relative'>
-              <span className='text-lg font-semibold'>Nome</span>
+              <span className='text-lg'>Nome</span>
               <input
                 {...register('name')}
                 type='text'
                 placeholder='Escreva seu nome aqui'
                 className={`px-10 py-2 border-b ${
-                  errors.name
-                    ? 'border-error'
-                    : 'border-primary-text dark:border-secondary-text'
-                } bg-primary-bg dark:bg-secondary-bg-dark outline-none`}
+                  errors.name ? 'border-error' : 'border-primary-text'
+                } bg-secondary-bg outline-hidden`}
               />
               <User
                 size={25}
@@ -87,16 +86,14 @@ export default function Contact() {
               </span>
             )}
             <label className='w-full grid gap-2 relative'>
-              <span className='text-lg font-semibold'>E-mail</span>
+              <span className='text-lg'>E-mail</span>
               <input
                 {...register('email')}
                 type='text'
                 placeholder='ex: contato@email.com'
                 className={`px-10 py-2 border-b ${
-                  errors.email
-                    ? 'border-error'
-                    : 'border-primary-text dark:border-secondary-text'
-                } bg-primary-bg dark:bg-secondary-bg-dark outline-none`}
+                  errors.email ? 'border-error' : 'border-primary-text'
+                } bg-secondary-bg outline-hidden`}
               />
               <Mail
                 size={25}
@@ -111,14 +108,12 @@ export default function Contact() {
               </span>
             )}
             <label className='w-full grid gap-2 relative'>
-              <span className='text-lg font-semibold'>Assunto</span>
+              <span className='text-lg'>Assunto</span>
               <select
                 {...register('topic')}
                 className={`px-10 py-2 border-b ${
-                  errors.topic
-                    ? 'border-error'
-                    : 'border-primary-text dark:border-secondary-text'
-                } bg-primary-bg dark:bg-secondary-bg-dark outline-none`}
+                  errors.topic ? 'border-error' : 'border-primary-text'
+                } bg-secondary-bg outline-hidden`}
               >
                 <option value='contatoComercial'>Contato comercial</option>
                 <option value='sugestoes'>Sugestões</option>
@@ -137,16 +132,14 @@ export default function Contact() {
               </span>
             )}
             <label className='w-full grid gap-2'>
-              <span className='text-lg font-semibold'>Menssagem</span>
+              <span className='text-lg'>Menssagem</span>
               <textarea
                 {...register('bodyMessage')}
                 rows={5}
                 placeholder='Escreva uma mensagem e retornarei seu e-mail.'
-                className={`resize-none p-2 dark:bg-secondary-bg-dark border ${
-                  errors.bodyMessage
-                    ? 'border-error'
-                    : 'border-primary-text dark:border-secondary-text'
-                } rounded bg-primary-bg outline-none`}
+                className={`resize-none p-2 border ${
+                  errors.bodyMessage ? 'border-error' : 'border-primary-text'
+                } rounded bg-secondary-bg outline-hidden`}
               ></textarea>
             </label>
             {errors?.bodyMessage && (
@@ -159,8 +152,8 @@ export default function Contact() {
               whileHover={{ scale: 1.01 }}
               type='submit'
               disabled={isLoading}
-              className='w-full text-lg text-button-text dark:text-button-text-dark font-montserrat-title
-                bg-button-bg dark:bg-button-bg-dark p-3 rounded flex justify-center items-center gap-4'
+              className='w-full text-lg text-button-text font-montserrat-title
+                bg-button-bg p-3 rounded flex justify-center items-center gap-4'
             >
               {!isLoading && <SendHorizonal />}
               {isLoading ? 'Enviando...' : 'Enviar'}
@@ -171,7 +164,7 @@ export default function Contact() {
               theme={`${resolvedTheme == 'dark' ? 'dark' : 'light'}`}
             />
             <div className='w-full grid place-items-center gap-2 mt-2'>
-              <p className='place-self-start text-secondary-text-dark'>
+              <p className='place-self-start text-secondary-text'>
                 Ou se preferir, entre em contato pelas redes:
               </p>
 
@@ -183,7 +176,7 @@ export default function Contact() {
                 text='Linkedin'
                 icon={Linkedin}
                 target='_blank'
-                className='border border-primary-text dark:border-secondary-text w-full justify-center'
+                className='border border-primary-text w-full justify-center'
               />
               <Button.Link
                 whileTap={{ scale: 0.95 }}
@@ -193,7 +186,7 @@ export default function Contact() {
                 text='Github'
                 icon={Github}
                 target='_blank'
-                className='border border-primary-text dark:border-secondary-text w-full justify-center'
+                className='border border-primary-text w-full justify-center'
               />
             </div>
           </motion.form>

@@ -4,7 +4,7 @@ import Button from './Button'
 
 export default function Footer() {
   return (
-    <footer className='h-40 bg-secondary-bg-dark dark:bg-primary-bg-dark text-primary-text-dark grid place-items-center grid-flow-row md:grid-flow-col'>
+    <footer className='h-40 bg-primary-bg text-primary-text grid place-items-center grid-flow-row md:grid-flow-col'>
       <ul className='flex gap-8'>
         <li>
           <Button.Link
@@ -14,7 +14,7 @@ export default function Footer() {
             text='Github'
             icon={Github}
             target='_blank'
-            className='hover:text-primary-bg dark:hover:text-primary-bg relative before:w-0 before:h-1 before:bg-primary-text-dark before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'
+            className=' relative before:w-0 before:h-1 before:bg-primary-text before:absolute before:left-0 before:-bottom-1 hover:before:w-full hover:before:duration-500 transition-all'
           />
         </li>
         <li>
@@ -25,11 +25,11 @@ export default function Footer() {
             text='Linkedin'
             icon={Linkedin}
             target='_blank'
-            className='hover:text-primary-bg dark:hover:text-primary-bg relative before:w-0 before:h-1 before:bg-blue-500 before:absolute before:left-0 before:-bottom-1 before:hover:w-full before:hover:duration-500 transition-all'
+            className=' relative before:w-0 before:h-1 before:bg-blue-500 before:absolute before:left-0 before:-bottom-1 hover:before:w-full hover:before:duration-500 transition-all'
           />
         </li>
       </ul>
-      <span className='text-center text-sm text-secondary-text-dark'>
+      <span className='text-center text-sm text-secondary-text'>
         © 2025 Ton . Todos os direitos reservados.
       </span>
     </footer>

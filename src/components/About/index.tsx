@@ -8,8 +8,11 @@ import { Github, Linkedin, Mail } from 'lucide-react'
 
 export default function About() {
   return (
-    <section className='min-h-screen m-auto grid place-items-center' id='sobre'>
-      <div className='w-full h-full dark:bg-primary-bg-dark xl:dark:bg-secondary-bg-dark xl:bg-secondary-bg py-10 grid place-items-center'>
+    <section
+      className='min-h-screen m-auto grid place-items-center text-primary-text dark:text-primary-text/70'
+      id='sobre'
+    >
+      <div className='w-full h-full bg-primary-bg xl:bg-secondary-bg py-10 grid place-items-center'>
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{
@@ -19,7 +22,7 @@ export default function About() {
           }}
           viewport={{ once: true }}
           className='max-w-7xl grid grid-flow-row lg:grid-cols-[1fr_2fr] lg:grid-flow-col rounded
-         py-10 px-4 bg-primary-bg dark:bg-primary-bg-dark xl:shadow'
+         py-10 px-4 bg-primary-bg xl:shadow-sm'
         >
           <div className='flex flex-col items-center gap-4'>
             <Image
@@ -29,13 +32,13 @@ export default function About() {
               height={300}
               className='rounded-full'
             />
-            <span className='text-lg'>Wellington Vieira</span>
+            <span className='text-lg text-primary-text'>Wellington Vieira</span>
             <div className='grid grid-flow-col gap-4'>
               <Button.Link
                 type='secondary'
                 icon={Mail}
                 textLink='#contato'
-                className='hover:text-error dark:hover:text-error'
+                className='hover:text-error'
               />
               <Button.Link
                 type='secondary'
@@ -49,27 +52,27 @@ export default function About() {
                 icon={Linkedin}
                 textLink='https://www.linkedin.com/in/wellingtonsantos2022/'
                 target='_blank'
-                className='hover:text-blue-500 dark:hover:text-blue-500'
+                className='hover:text-blue-500'
               />
             </div>
           </div>
           <div className='grid place-content-around px-4 text-justify text-xl leading-relaxed'>
             <header className='my-5'>
-              <h2 className='text-center lg:text-left font-montserrat-title text-4xl'>
+              <h2 className='text-center lg:text-left text-4xl text-primary-text'>
                 Sobre Mim
               </h2>
             </header>
             <p>
               Meu nome é{' '}
-              <strong className='text-button-bg dark:text-button-bg-dark font-montserrat-title'>
+              <strong className='text-button-bg font-montserrat-title'>
                 Wellington Vieira
               </strong>
               , sou um{' '}
-              <strong className='text-button-bg dark:text-button-bg-dark font-montserrat-title'>
+              <strong className='text-button-bg font-montserrat-title'>
                 Desenvolvedor Front-end
               </strong>{' '}
               especializado em{' '}
-              <strong className='text-button-bg dark:text-button-bg-dark font-montserrat-title'>
+              <strong className='text-button-bg font-montserrat-title'>
                 Next.js
               </strong>
               , com formação em Matemática, há dois anos fiz uma transição de
@@ -92,7 +95,7 @@ export default function About() {
           </div>
         </motion.div>
         <div className='w-full text-center '>
-          <h2 className=' text-4xl my-20 font-montserrat-title'>Habilidades</h2>
+          <h2 className=' text-4xl my-20 text-primary-text'>Habilidades</h2>
           <SkillSmoothTabs />
         </div>
       </div>

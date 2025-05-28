@@ -36,7 +36,7 @@ export default function ThemeSwitch() {
     <div className='relative flex justify-center items-center'>
       <button
         onClick={toggleTheme}
-        className='h-12 w-12 rounded-full p-1 outline-none'
+        className='h-12 w-12 rounded-full p-1 outline-hidden'
       >
         <svg
           className='fill-black hover:fill-indigo-600 block dark:hidden transition-all'
@@ -59,9 +59,7 @@ export default function ThemeSwitch() {
       </button>
       {isAnimating && (
         <motion.div
-          className={`absolute w-8 h-8 ${
-            resolvedTheme == 'dark' ? 'bg-gray-100' : 'bg-black'
-          } rounded-full`}
+          className={`absolute w-8 h-8 ${'bg-primary-text'} rounded-full`}
           initial={{ scale: 1, opacity: 1 }}
           animate={{ scale: 150, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
