@@ -2,7 +2,7 @@
 import { House, Briefcase, User, SendHorizontal } from 'lucide-react'
 import Link from 'next/link'
 import { ThemeSwitch } from './ThemeSwitch'
-import { ElementType, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const navLinks = [
   { path: 'home', name: 'Home', icon: House },
