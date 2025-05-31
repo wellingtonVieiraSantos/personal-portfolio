@@ -22,6 +22,7 @@
   --color-button-bg: #1d63ff;
   --color-button-text: #fffffe;
   --color-error: #e45858;
+  --color-border: oklch(0.27 0.0063 258.36 / 0.3);
   --font-poppins: var(--font-poppins);
   --font-montserrat: var(--font-montserrat);
 }
@@ -32,8 +33,8 @@
     --color-secondary-bg: #242629;
     --color-primary-text: #fffdf2;
     --color-secondary-text: #94a1b2;
-    --color-button-bg: #00ffff;
-    --color-button-text: #0a1828;
+    --color-button-bg: #6d6dff;
+    --color-border: oklch(0.99 0.0146 98.28 / 0.3);
   }
 }
 

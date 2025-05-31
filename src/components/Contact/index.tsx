@@ -4,15 +4,53 @@ import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify'
-import { User, Mail, List, SendHorizonal, Github, Linkedin } from 'lucide-react'
+import {
+  User,
+  Mail,
+  SendHorizonal,
+  LinkedinIcon,
+  InstagramIcon
+} from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import Button from '../Button'
+import { Button } from '../ui/Button'
+import { useInView } from 'react-intersection-observer'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormLabel,
+  FormMessage,
+  FormSubmit
+} from '../ui/Form'
+import { Input } from '../ui/Input'
+import { Textarea } from '../ui/Textarea'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '../ui/Select'
+import Link from 'next/link'
 
-export default function Contact() {
+export default function Contact({
+  id,
+  setActiveSection
+}: {
+  id: string
+  setActiveSection: Dispatch<SetStateAction<string>>
+}) {
   const [isLoading, setIsLoading] = useState(false)
   const { resolvedTheme } = useTheme()
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: false
+  })
+  useEffect(() => {
+    if (inView) setActiveSection(id)
+  }, [inView, id, setActiveSection])
 
   const {
     register,
@@ -44,154 +82,156 @@ export default function Contact() {
 
   return (
     <section
-      className='w-full h-fit bg-secondary-bg text-primary-text'
-      id='contato'
+      className='min-h-screen grid place-items-center bg-primary-bg py-10 text-primary-text'
+      id={id}
+      ref={ref}
     >
-      <div className='max-w-7xl py-10 m-auto flex flex-col justify-center gap-10'>
-        <header>
-          <h2 className='text-center text-4xl'>Contato</h2>
-        </header>
-        <div className='flex items-center justify-center'>
-          <motion.form
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: { delay: 0.2, duration: 0.4 }
-            }}
-            viewport={{ once: true }}
-            onSubmit={handleSubmit(onSubmit)}
-            className='w-[min(100%,600px)] grid place-items-center gap-4 py-8 px-4'
-          >
-            <label className='w-full grid gap-2 relative'>
-              <span className='text-lg'>Nome</span>
-              <input
+      <header>
+        <h2 className='text-center my-10 text-4xl text-primary-text'>
+          Contato
+        </h2>
+      </header>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.2, duration: 0.4 }
+        }}
+        viewport={{ once: true }}
+        className='w-full max-w-7xl flex flex-col justify-center items-center overflow-hidden'
+      >
+        <Form
+          onSubmit={handleSubmit(onSubmit)}
+          className='w-[min(100%,500px)] flex flex-col p-4 gap-6'
+        >
+          <FormField name='name'>
+            <FormLabel>Nome</FormLabel>
+            <FormControl asChild>
+              <Input
+                id='name'
                 {...register('name')}
-                type='text'
-                placeholder='Escreva seu nome aqui'
-                className={`px-10 py-2 border-b ${
-                  errors.name ? 'border-error' : 'border-primary-text'
-                } bg-secondary-bg outline-hidden`}
+                placeholder='Escreva seu nome'
+                icon={User}
+                handleDelete={() => reset({ name: '' })}
               />
-              <User
-                size={25}
-                className={`absolute bottom-2 left-1 ${
-                  errors.name && 'text-error'
-                }`}
-              />
-            </label>
+            </FormControl>
             {errors?.name && (
-              <span className='justify-self-start text-error'>
+              <FormMessage className='justify-self-start text-error'>
                 {errors.name?.message}
-              </span>
+              </FormMessage>
             )}
-            <label className='w-full grid gap-2 relative'>
-              <span className='text-lg'>E-mail</span>
-              <input
+          </FormField>
+          <FormField name='email'>
+            <FormLabel>Email</FormLabel>
+            <FormControl asChild>
+              <Input
+                id='name'
                 {...register('email')}
-                type='text'
-                placeholder='ex: contato@email.com'
-                className={`px-10 py-2 border-b ${
-                  errors.email ? 'border-error' : 'border-primary-text'
-                } bg-secondary-bg outline-hidden`}
+                placeholder='Escreva seu email de contato'
+                icon={Mail}
+                handleDelete={() => reset({ email: '' })}
               />
-              <Mail
-                size={25}
-                className={`absolute bottom-2 left-1 ${
-                  errors.email && 'text-error'
-                }`}
-              />
-            </label>
+            </FormControl>
             {errors?.email && (
-              <span className='justify-self-start text-error'>
+              <FormMessage className='justify-self-start text-error'>
                 {errors.email?.message}
-              </span>
+              </FormMessage>
             )}
-            <label className='w-full grid gap-2 relative'>
-              <span className='text-lg'>Assunto</span>
-              <select
-                {...register('topic')}
-                className={`px-10 py-2 border-b ${
-                  errors.topic ? 'border-error' : 'border-primary-text'
-                } bg-secondary-bg outline-hidden`}
-              >
-                <option value='contatoComercial'>Contato comercial</option>
-                <option value='sugestoes'>Sugestões</option>
-                <option value='duvidas'>Dúvidas</option>
-              </select>
-              <List
-                size={25}
-                className={`absolute bottom-2 left-1 ${
-                  errors.topic && 'text-error'
-                }`}
-              />
-            </label>
-            {errors?.topic && (
-              <span className='justify-self-start text-error'>
-                {errors.topic?.message}
-              </span>
-            )}
-            <label className='w-full grid gap-2'>
-              <span className='text-lg'>Menssagem</span>
-              <textarea
+          </FormField>
+          <FormField name='topic'>
+            <FormLabel>Assunto</FormLabel>
+            <FormControl asChild>
+              <Select {...register('topic')} defaultValue='contatoComercial'>
+                <SelectTrigger>
+                  <SelectValue placeholder='Escolha um assunto' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='contatoComercial'>
+                    Contato Comercial
+                  </SelectItem>
+                  <SelectItem value='sugestoes'>Sugestões</SelectItem>
+                  <SelectItem value='duvidas'>Dúvidas</SelectItem>
+                </SelectContent>
+              </Select>
+            </FormControl>
+          </FormField>
+          <FormField name='bodyMessage'>
+            <FormLabel>Menssagem</FormLabel>
+            <FormControl asChild>
+              <Textarea
+                id='name'
                 {...register('bodyMessage')}
                 rows={5}
-                placeholder='Escreva uma mensagem e retornarei seu e-mail.'
-                className={`resize-none p-2 border ${
-                  errors.bodyMessage ? 'border-error' : 'border-primary-text'
-                } rounded bg-secondary-bg outline-hidden`}
-              ></textarea>
-            </label>
+                placeholder='Escreva sua mensagem e retornarei seu email.'
+              />
+            </FormControl>
             {errors?.bodyMessage && (
-              <span className='justify-self-start text-error'>
+              <FormMessage className='justify-self-start text-error'>
                 {errors.bodyMessage?.message}
-              </span>
+              </FormMessage>
             )}
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              whileHover={{ scale: 1.01 }}
+          </FormField>
+          <FormSubmit asChild>
+            <Button
+              className='w-full text-button-text'
               type='submit'
-              disabled={isLoading}
-              className='w-full text-lg text-button-text font-montserrat-title
-                bg-button-bg p-3 rounded flex justify-center items-center gap-4'
+              variant={isLoading ? 'loading' : 'default'}
             >
-              {!isLoading && <SendHorizonal />}
-              {isLoading ? 'Enviando...' : 'Enviar'}
-            </motion.button>
-            <ToastContainer
-              position='top-center'
-              autoClose={3000}
-              theme={`${resolvedTheme == 'dark' ? 'dark' : 'light'}`}
-            />
-            <div className='w-full grid place-items-center gap-2 mt-2'>
-              <p className='place-self-start text-secondary-text'>
-                Ou se preferir, entre em contato pelas redes:
-              </p>
+              {isLoading ? (
+                'Enviando'
+              ) : (
+                <span className='flex items-center justify-center gap-2'>
+                  <SendHorizonal />
+                  Enviar
+                </span>
+              )}
+            </Button>
+          </FormSubmit>
+          <ToastContainer
+            position='top-center'
+            autoClose={3000}
+            theme={`${resolvedTheme == 'dark' ? 'dark' : 'light'}`}
+          />
+        </Form>
+        <div className='w-1/2 max-w-[250px] h-[1px] bg-border my-2' />
+        <div className='w-full max-w-[500px] grid place-items-center gap-2 p-4'>
+          <p className=' text-primary-text/70 py-2 text-sm'>
+            Ou se preferir, entre em contato pelas redes:
+          </p>
+          <Link
+            href={'https://www.linkedin.com/in/wellingtonsantos2022/'}
+            target='_blank'
+            className='w-full'
+          >
+            <Button
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              variant='border'
+              className='w-full'
+            >
+              <LinkedinIcon />
+              LinkedIn
+            </Button>
+          </Link>
 
-              <Button.Link
-                whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.02 }}
-                type='secondary'
-                textLink='https://www.linkedin.com/in/wellingtonsantos2022/'
-                text='Linkedin'
-                icon={Linkedin}
-                target='_blank'
-                className='border border-primary-text w-full justify-center'
-              />
-              <Button.Link
-                whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.02 }}
-                type='secondary'
-                textLink='https://github.com/wellingtonVieiraSantos'
-                text='Github'
-                icon={Github}
-                target='_blank'
-                className='border border-primary-text w-full justify-center'
-              />
-            </div>
-          </motion.form>
+          <Link
+            href={'https://www.instagram.com/tonsantos_26/'}
+            target='_blank'
+            className='w-full'
+          >
+            <Button
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              variant='border'
+              className='w-full'
+            >
+              <InstagramIcon />
+              Instagram
+            </Button>
+          </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

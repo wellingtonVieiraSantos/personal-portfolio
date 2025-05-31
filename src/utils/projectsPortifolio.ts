@@ -2,8 +2,19 @@ import criatividadeEmMatematica from '../assets/criatividadeEmMatematica.webp'
 import formNext from '../assets/formNext.webp'
 import weather from '../assets/weatherapp.webp'
 import portugueseQuiz from '../assets/portugueseQuiz.webp'
+import uiLib from '../assets/uiLib.png'
 
 export const projects = [
+  {
+    title: 'UI Lib',
+    img: uiLib,
+    description:
+      'Biblioteca de componentes UI, usando os primitive components da lib Radix e estilizando-os de forma elegante e responsiva.',
+    stack: ['Next', 'TypeScript', 'Tailwind', 'Radix', 'Lucide'],
+    links: {
+      githubCode: 'https://github.com/wellingtonVieiraSantos/UI-lib'
+    }
+  },
   {
     title: 'Criatividade em Matemática',
     img: criatividadeEmMatematica,

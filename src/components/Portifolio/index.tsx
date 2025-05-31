@@ -1,51 +1,105 @@
 'use client'
-import Card from '@/components/CardPortifolio'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/Card'
 import { projects } from '../../utils/projectsPortifolio'
-import Button from '../Button'
+import { Button } from '../ui/Button'
 import { CodeXml, PanelsTopLeft } from 'lucide-react'
+import { Dispatch, SetStateAction, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { Badge } from '../ui/Badge'
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Portifolio() {
+export default function Portifolio({
+  id,
+  setActiveSection
+}: {
+  id: string
+  setActiveSection: Dispatch<SetStateAction<string>>
+}) {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false
+  })
+  useEffect(() => {
+    if (inView) setActiveSection(id)
+  }, [inView, id, setActiveSection])
   return (
     <section
-      className='min-h-screen m-auto grid place-content-center bg-primary-bg text-primary-text'
-      id='portifolio'
+      className='size-full min-h-dvh grid place-content-center bg-primary-bg text-primary-text py-4'
+      id={id}
+      ref={ref}
     >
-      <div className='max-w-7xl py-4 px-2 my-10 grid grid-cols-1 gap-10'>
+      <div className='m-auto max-w-7xl px-4 grid grid-cols-1 gap-4 '>
         <header>
-          <h2 className='text-center text-4xl my-8'>Portifolio</h2>
+          <h2 className='text-center text-4xl my-10'>Projetos</h2>
         </header>
-        {projects.map((project, index) => (
-          <Card.Root key={index} reverse={index % 2 === 1}>
-            <Card.Image src={project.img} alt={project.title} />
-            <Card.Content
-              title={project.title}
-              description={project.description}
-              stack={project.stack}
-            >
-              <Card.Actions>
+        {projects.map((project, i) => (
+          <Card
+            key={i}
+            reverse={i % 2 == 0}
+            className='border-none shadow-none bg-secondary-bg sm:bg-primary-bg grid grid-cols-1 sm:grid-cols-2 place-items-center'
+          >
+            <Image
+              src={project.img}
+              alt={project.title}
+              className={`sm:size-[90%] opacity-50 hover:opacity-100 transition duration-300 object-cover object-center ${
+                i % 2 == 0 && 'sm:order-1'
+              } rounded-lg`}
+            />
+            <div className={`flex flex-col ${i % 2 !== 0 && 'sm:items-end'}`}>
+              <CardHeader className={`${i % 2 !== 0 && 'sm:text-right'}`}>
+                <CardTitle className='text-xl'>{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <h3 className={`${i % 2 !== 0 && 'sm:text-right'}`}>Stack</h3>
+                <div className='flex gap-2 flex-wrap'>
+                  {project.stack.map((stack, i) => (
+                    <Badge key={i} className='dark:bg-primary-text/10'>
+                      {stack}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter
+                className={`flex-col sm:flex-row ${
+                  i % 2 === 0 && 'sm:justify-normal'
+                }`}
+              >
                 {project.links.githubCode && (
-                  <Button.Link
-                    textLink={project.links.githubCode}
-                    type='primary'
-                    text='code'
-                    icon={CodeXml}
-                    className='px-6'
+                  <Link
+                    href={project.links.githubCode}
                     target='_blank'
-                  />
+                    className='w-full sm:w-fit'
+                  >
+                    <Button className='w-full sm:px-10'>
+                      <CodeXml />
+                      code
+                    </Button>
+                  </Link>
                 )}
                 {project.links.website && (
-                  <Button.Link
-                    textLink={project.links.website}
-                    type='primary'
-                    text='page'
-                    icon={PanelsTopLeft}
-                    className='px-6'
+                  <Link
+                    href={project.links.website}
                     target='_blank'
-                  />
+                    className='w-full sm:w-fit'
+                  >
+                    <Button variant='border' className='w-full sm:px-10'>
+                      <PanelsTopLeft />
+                      page
+                    </Button>
+                  </Link>
                 )}
-              </Card.Actions>
-            </Card.Content>
-          </Card.Root>
+              </CardFooter>
+            </div>
+          </Card>
         ))}
       </div>
     </section>

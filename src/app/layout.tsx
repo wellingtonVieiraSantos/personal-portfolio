@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { Providers } from './providers'
 import Head from 'next/head'
 
@@ -37,12 +35,10 @@ export default function RootLayout({
       <Head>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <body className={`min-h-dvh ${montserrat.variable} ${poppins.variable}`}>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+      <body
+        className={`w-full min-h-dvh ${montserrat.variable} ${poppins.variable}`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

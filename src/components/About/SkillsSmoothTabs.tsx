@@ -1,11 +1,17 @@
-import { useState } from 'react'
+'use client'
 import { skills } from '@/utils/skillsData'
 import Image from 'next/image'
-import { AnimatePresence, motion } from 'motion/react'
+import { motion } from 'motion/react'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '../ui/Card'
+import { Divider } from '../ui/Divider'
 
 export default function SkillSmoothTabs() {
-  const [active, setActive] = useState(skills[0].id)
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}
@@ -15,52 +21,52 @@ export default function SkillSmoothTabs() {
         transition: { delay: 0.2, duration: 0.4 }
       }}
       viewport={{ once: true }}
-      className='w-full max-w-4xl bg-secondary-bg xl:bg-primary-bg lg:rounded-sm m-auto grid grid-flow-row p-4 overflow-hidden lg:shadow-sm'
+      className='w-full xl:w-7xl m-auto bg-primary-bg px-4 rounded-md grid grid-cols-1 gap-2'
     >
-      <AnimatePresence mode='wait'>
-        <motion.div
-          className='mb-4 grid grid-flow-col gap-4'
-          key={active}
-          initial={{ opacity: 0, x: '50%' }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: '-50%' }}
-          transition={{ delay: 0.1, duration: 0.3 }}
+      <h2 className='text-4xl my-10 text-primary-text text-center'>
+        Habilidades
+      </h2>
+      {skills.map((skill, i) => (
+        <Card
+          key={i}
+          reverse={i % 2 == 0}
+          className={`relative m-auto border-none bg-secondary-bg sm:bg-primary-bg shadow-none flex-wrap flex flex-col ${
+            i % 2 == 0 ? 'sm:text-left' : 'sm:items-end sm:text-right'
+          }`}
         >
-          <Image
-            src={skills.find(skill => skill.id === active)?.img}
-            alt={skills.find(skill => skill.id === active)?.title + ' logo'}
-            className='h-16 w-auto border border-secondary-text bg-white p-2 rounded-sm'
+          <Divider
+            orientation='vertical'
+            className={`hidden sm:block absolute`}
           />
-          <div className='grid place-items-start gap-2'>
-            <h3 className='text-2xl text-primary-text'>
-              {skills.find(skill => skill.id === active)?.title}
-            </h3>
-            <p className=' m-auto text-justify text-lg '>
-              {skills.find(skill => skill.id === active)?.content}
-            </p>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      <ul className='flex sm:flex-wrap overflow-x-scroll sm:overflow-auto gap-2'>
-        {skills?.map(skill => (
-          <button
-            key={skill.id}
-            onClick={() => setActive(skill.id)}
-            className={`py-2 px-4 flex flex-1 justify-center relative border border-primary-bg xl:border-secondary-bg rounded ${
-              active === skill.id && 'text-button-text'
-            }  font-montserrat-title`}
-          >
-            <li className='z-10 '>{skill.title}</li>
-            {active === skill.id && (
-              <motion.div
-                layoutId='background-button'
-                className='absolute left-0 w-full rounded-sm bottom-0 h-full bg-button-bg'
+          <CardHeader>
+            <CardTitle
+              className={`relative flex items-center text-primary-text gap-4 ${
+                i % 2 !== 0 && 'sm:justify-start sm:flex-row-reverse'
+              }`}
+            >
+              <Image
+                src={skill.img}
+                alt={skill.title + ' logo'}
+                className='size-15 p-2 rounded-md dark:bg-button-text'
               />
-            )}
-          </button>
-        ))}
-      </ul>
+              <p>{skill.title}</p>
+            </CardTitle>
+            <CardDescription className='max-w-xl'>
+              {skill.content}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className='text-primary-text font-montserrat'>
+              Conhecimentos estudados:
+            </p>
+            <ul className='list-disc list-inside text-left marker:text-button-bg'>
+              {skill.topics?.map((topic, i) => (
+                <li key={i}>{topic}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      ))}
     </motion.div>
   )
 }
