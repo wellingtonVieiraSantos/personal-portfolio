@@ -23,7 +23,7 @@ export default function About({
   setActiveSection: Dispatch<SetStateAction<string>>
 }) {
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.1,
     triggerOnce: false
   })
   useEffect(() => {
@@ -50,7 +50,11 @@ export default function About({
         viewport={{ once: true }}
         className='w-full max-w-7xl px-4 bg-primary-bg'
       >
-        <Card className='border-none shadow-none grid grid-flow-row lg:grid-flow-col bg-secondary-bg sm:bg-primary-bg'>
+        <Card
+          initial={{ opacity: 0, y: 200 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className='border-none shadow-none grid grid-flow-row lg:grid-flow-col bg-secondary-bg sm:bg-primary-bg'
+        >
           <div className='flex flex-col items-center'>
             <Image
               src={perfil}
