@@ -34,7 +34,7 @@ export default function HomePage({
           transition: { duration: 0.5, opacity: 'linear', ease: 'easeOut' }
         }}
         className='max-w-[1200px] md:pl-10 px-2 flex flex-col items-center md:items-start
-         md:text-left text-center gap-10 md:border-l-4 border-border'
+         md:text-left text-center gap-10 md:border-l-4 border-border -mt-10 md:mt-0'
       >
         <h1 className='text-xl md:text-2xl'>
           Olá, sou{' '}
