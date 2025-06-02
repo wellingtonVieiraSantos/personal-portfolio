@@ -2,7 +2,7 @@
 import { FormContactType } from '@/types'
 import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify'
 import {
   User,
@@ -56,6 +56,7 @@ export default function Contact({
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors }
   } = useForm<FormContactType>({
     resolver: zodResolver(formContactSchema)
@@ -63,6 +64,8 @@ export default function Contact({
 
   const onSubmit = async (data: FormContactType) => {
     setIsLoading(true)
+    console.log(data)
+
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -70,6 +73,8 @@ export default function Contact({
     })
 
     const resJson = await response.json()
+
+    console.log(resJson)
 
     if (response.ok) {
       toast.success(resJson.success)
@@ -82,7 +87,7 @@ export default function Contact({
 
   return (
     <section
-      className='min-h-screen grid place-items-center bg-primary-bg py-10 text-primary-text'
+      className='min-h-dvh grid place-items-center bg-primary-bg py-10 text-primary-text'
       id={id}
       ref={ref}
     >
@@ -126,7 +131,7 @@ export default function Contact({
             <FormLabel>Email</FormLabel>
             <FormControl asChild>
               <Input
-                id='name'
+                id='email'
                 {...register('email')}
                 placeholder='Escreva seu email de contato'
                 icon={Mail}
@@ -142,25 +147,32 @@ export default function Contact({
           <FormField name='topic'>
             <FormLabel>Assunto</FormLabel>
             <FormControl asChild>
-              <Select {...register('topic')} defaultValue='contatoComercial'>
-                <SelectTrigger>
-                  <SelectValue placeholder='Escolha um assunto' />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='contatoComercial'>
-                    Contato Comercial
-                  </SelectItem>
-                  <SelectItem value='sugestoes'>Sugestões</SelectItem>
-                  <SelectItem value='duvidas'>Dúvidas</SelectItem>
-                </SelectContent>
-              </Select>
+              <Controller
+                name='topic'
+                control={control}
+                defaultValue='contatoComercial'
+                render={({ field }) => (
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger>
+                      <SelectValue placeholder='Escolha um assunto' />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value='contatoComercial'>
+                        Contato Comercial
+                      </SelectItem>
+                      <SelectItem value='sugestoes'>Sugestões</SelectItem>
+                      <SelectItem value='duvidas'>Dúvidas</SelectItem>
+                    </SelectContent>
+                  </Select>
+                )}
+              />
             </FormControl>
           </FormField>
           <FormField name='bodyMessage'>
             <FormLabel>Menssagem</FormLabel>
             <FormControl asChild>
               <Textarea
-                id='name'
+                id='bodyMessage'
                 {...register('bodyMessage')}
                 rows={5}
                 placeholder='Escreva sua mensagem e retornarei seu email.'

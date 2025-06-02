@@ -31,7 +31,7 @@ export default function About({
   }, [inView, id, setActiveSection])
   return (
     <section
-      className='min-h-screen grid place-items-center bg-primary-bg py-10 text-primary-text'
+      className='min-h-dvh grid place-items-center bg-primary-bg py-10 text-primary-text'
       id={id}
       ref={ref}
     >

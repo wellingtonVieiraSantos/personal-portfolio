@@ -44,7 +44,7 @@ export default function Nav({ activeSection }: { activeSection: string }) {
           {navLinks.map((link, i) => (
             <li
               key={i}
-              className={`relative font-montserrat flex items-center justify-center flex-1 after:absolute after:-bottom-2 after:scale-0 
+              className={`relative hover:text-primary-text font-montserrat flex items-center justify-center flex-1 after:absolute after:-bottom-2 after:scale-0 
                   after:w-full after:h-[3px] after:bg-button-bg after:transition after:duration-300 transition-colors duration-300 ${
                     activeSection === link.path &&
                     'text-primary-text after:scale-100'

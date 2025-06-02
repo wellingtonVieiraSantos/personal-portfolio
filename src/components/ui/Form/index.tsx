@@ -29,10 +29,7 @@ const FormMessage = forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <FormRadix.Message
-      className={twMerge(
-        `text-sm group-data-[invalid]:text-red-600`,
-        className
-      )}
+      className={twMerge(`text-sm group-data-[invalid]:text-error`, className)}
       ref={ref}
       {...props}
     />
@@ -48,7 +45,7 @@ const FormSubmitError = forwardRef<
   return (
     <span
       className={twMerge(
-        `h-8 flex justify-center items-center text-sm text-red-500`,
+        `h-8 flex justify-center items-center text-sm text-error`,
         className
       )}
       ref={ref}

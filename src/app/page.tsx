@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Nav activeSection={activeSection} />
-      <main className='overflow-x-hidden overflow-y-auto'>
+      <main className='overflow-hidden'>
         <HomePage setActiveSection={setActiveSection} id='home' />
         <About setActiveSection={setActiveSection} id='sobre' />
         <Portifolio setActiveSection={setActiveSection} id='projetos' />

@@ -22,7 +22,7 @@ export default function HomePage({
   }, [inView, id, setActiveSection])
   return (
     <section
-      className='relative min-h-screen grid place-content-center bg-primary-bg text-primary-text'
+      className='relative min-h-dvh grid place-content-center bg-primary-bg text-primary-text'
       id={id}
       ref={ref}
     >
