@@ -64,7 +64,6 @@ export default function Contact({
 
   const onSubmit = async (data: FormContactType) => {
     setIsLoading(true)
-    console.log(data)
 
     const response = await fetch('/api/contact', {
       method: 'POST',
@@ -73,8 +72,6 @@ export default function Contact({
     })
 
     const resJson = await response.json()
-
-    console.log(resJson)
 
     if (response.ok) {
       toast.success(resJson.success)
@@ -112,15 +109,13 @@ export default function Contact({
         >
           <FormField name='name'>
             <FormLabel>Nome</FormLabel>
-            <FormControl asChild>
-              <Input
-                id='name'
-                {...register('name')}
-                placeholder='Escreva seu nome'
-                icon={User}
-                handleDelete={() => reset({ name: '' })}
-              />
-            </FormControl>
+            <Input
+              id='name'
+              {...register('name')}
+              placeholder='Escreva seu nome'
+              icon={User}
+              handleDelete={() => reset({ name: '' })}
+            />
             {errors?.name && (
               <FormMessage className='justify-self-start text-error'>
                 {errors.name?.message}
@@ -129,15 +124,13 @@ export default function Contact({
           </FormField>
           <FormField name='email'>
             <FormLabel>Email</FormLabel>
-            <FormControl asChild>
-              <Input
-                id='email'
-                {...register('email')}
-                placeholder='Escreva seu email de contato'
-                icon={Mail}
-                handleDelete={() => reset({ email: '' })}
-              />
-            </FormControl>
+            <Input
+              id='email'
+              {...register('email')}
+              placeholder='Escreva seu email de contato'
+              icon={Mail}
+              handleDelete={() => reset({ email: '' })}
+            />
             {errors?.email && (
               <FormMessage className='justify-self-start text-error'>
                 {errors.email?.message}
@@ -146,27 +139,25 @@ export default function Contact({
           </FormField>
           <FormField name='topic'>
             <FormLabel>Assunto</FormLabel>
-            <FormControl asChild>
-              <Controller
-                name='topic'
-                control={control}
-                defaultValue='contatoComercial'
-                render={({ field }) => (
-                  <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger>
-                      <SelectValue placeholder='Escolha um assunto' />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value='contatoComercial'>
-                        Contato Comercial
-                      </SelectItem>
-                      <SelectItem value='sugestoes'>Sugestões</SelectItem>
-                      <SelectItem value='duvidas'>Dúvidas</SelectItem>
-                    </SelectContent>
-                  </Select>
-                )}
-              />
-            </FormControl>
+            <Controller
+              name='topic'
+              control={control}
+              defaultValue='contatoComercial'
+              render={({ field }) => (
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <SelectTrigger>
+                    <SelectValue placeholder='Escolha um assunto' />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value='contatoComercial'>
+                      Contato Comercial
+                    </SelectItem>
+                    <SelectItem value='sugestoes'>Sugestões</SelectItem>
+                    <SelectItem value='duvidas'>Dúvidas</SelectItem>
+                  </SelectContent>
+                </Select>
+              )}
+            />
           </FormField>
           <FormField name='bodyMessage'>
             <FormLabel>Menssagem</FormLabel>

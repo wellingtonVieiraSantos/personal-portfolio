@@ -3,7 +3,6 @@ import { forwardRef, InputHTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: string
   type?: 'text' | 'number' | 'password' | 'email' | 'search'
   icon?: LucideIcon
   handleDelete?: () => void

@@ -6,7 +6,7 @@ import { Button } from '../ui/Button'
 import { Moon, Sun } from 'lucide-react'
 
 const ThemeSwitch = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
-  ({ ...props }) => {
+  ({ ...props }, ref) => {
     const [mounted, setMounted] = useState(false)
     const { setTheme, resolvedTheme } = useTheme()
     const [isAnimating, setIsAnimating] = useState(false)
@@ -37,7 +37,7 @@ const ThemeSwitch = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
       )
 
     return (
-      <div className={'flex justify-end items-center'} {...props}>
+      <div className={'flex justify-end items-center'} ref={ref} {...props}>
         <Button
           size='icon'
           onClick={toggleTheme}
