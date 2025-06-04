@@ -2,8 +2,7 @@
 import { useTheme } from 'next-themes'
 import { forwardRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Button } from '../ui/Button'
-import { Moon, Sun } from 'lucide-react'
+import { Switch } from '../ui/Switch'
 
 const ThemeSwitch = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ ...props }, ref) => {
@@ -38,16 +37,10 @@ const ThemeSwitch = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
 
     return (
       <div className={'flex justify-end items-center'} ref={ref} {...props}>
-        <Button
-          size='icon'
-          onClick={toggleTheme}
-          className='relative size-12 p-1 bg-transparent hover:bg-transparent text-primary-text outline-hidden [&>svg]:size-8 group'
+        <Switch
+          checked={resolvedTheme === 'dark'}
+          onCheckedChange={toggleTheme}
         >
-          {resolvedTheme === 'dark' ? (
-            <Sun className='group-hover:text-button-bg transition duration-300' />
-          ) : (
-            <Moon className='group-hover:text-button-bg transition duration-300' />
-          )}
           {isAnimating && (
             <motion.div
               className={`absolute size-8 bg-primary-text rounded-full`}
@@ -61,7 +54,7 @@ const ThemeSwitch = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
               }}
             />
           )}
-        </Button>
+        </Switch>
       </div>
     )
   }
