@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Dispatch, SetStateAction, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import SocialSideBar from './SocialSideBar'
+import { ThemeSwitch } from '../Nav/ThemeSwitch'
 
 export default function HomePage({
   id,
@@ -26,6 +27,7 @@ export default function HomePage({
       id={id}
       ref={ref}
     >
+      <ThemeSwitch className='absolute right-4 top-2 md:hidden' />
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         animate={{

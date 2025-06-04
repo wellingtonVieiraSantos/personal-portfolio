@@ -40,10 +40,11 @@ const ThemeSwitch = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
         <Switch
           checked={resolvedTheme === 'dark'}
           onCheckedChange={toggleTheme}
+          disabled={isAnimating}
         >
           {isAnimating && (
             <motion.div
-              className={`absolute size-8 bg-primary-text rounded-full`}
+              className={`absolute z-999 size-8 bg-primary-text rounded-full`}
               initial={{ scale: 1, opacity: 0.6 }}
               animate={{ scale: 150, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
