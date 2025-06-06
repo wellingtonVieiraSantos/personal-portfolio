@@ -32,7 +32,7 @@ export default function Portifolio({
   }, [inView, id, setActiveSection])
   return (
     <section
-      className='size-full min-h-dvh grid place-content-center bg-primary-bg text-primary-text py-4'
+      className='size-full min-h-dvh grid place-content-center py-4'
       id={id}
       ref={ref}
     >
@@ -44,7 +44,7 @@ export default function Portifolio({
           <Card
             key={i}
             reverse={i % 2 == 0}
-            className='border-none shadow-none bg-secondary-bg sm:bg-primary-bg grid grid-cols-1 sm:grid-cols-2 place-items-center'
+            className='sm:border-none sm:bg-background grid grid-cols-1 sm:grid-cols-2 place-items-center'
           >
             <Image
               src={project.img}
@@ -62,9 +62,7 @@ export default function Portifolio({
                 <h3 className={`${i % 2 !== 0 && 'sm:text-right'}`}>Stack</h3>
                 <div className='flex gap-2 flex-wrap'>
                   {project.stack.map((stack, i) => (
-                    <Badge key={i} className='dark:bg-primary-text/10'>
-                      {stack}
-                    </Badge>
+                    <Badge key={i}>{stack}</Badge>
                   ))}
                 </div>
               </CardContent>
@@ -81,7 +79,7 @@ export default function Portifolio({
                   >
                     <Button className='w-full sm:px-10'>
                       <CodeXml />
-                      code
+                      Github
                     </Button>
                   </Link>
                 )}
@@ -93,7 +91,7 @@ export default function Portifolio({
                   >
                     <Button variant='border' className='w-full sm:px-10'>
                       <PanelsTopLeft />
-                      page
+                      Site
                     </Button>
                   </Link>
                 )}

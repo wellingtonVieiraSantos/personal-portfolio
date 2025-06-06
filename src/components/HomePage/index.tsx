@@ -23,7 +23,7 @@ export default function HomePage({
   }, [inView, id, setActiveSection])
   return (
     <section
-      className='relative min-h-dvh grid place-content-center bg-primary-bg text-primary-text'
+      className='relative min-h-dvh grid place-content-center'
       id={id}
       ref={ref}
     >
@@ -40,17 +40,15 @@ export default function HomePage({
       >
         <h1 className='text-xl md:text-2xl'>
           Olá, sou{' '}
-          <span className='leading-none block text-button-bg text-7xl md:text-9xl mt-4'>
+          <span className='leading-none block text-button text-7xl md:text-9xl mt-4'>
             Ton Santos
           </span>
         </h1>
         <p className='text-xl md:text-2xl'>
           Desenvolvedor Front-end |{' '}
-          <span className='font-montserrat text-button-bg text-3xl'>
-            Next.js
-          </span>
+          <span className='font-montserrat text-button text-3xl'>Next.js</span>
         </p>
-        <p className='md:text-lg text-center md:text-justify px-4 text-primary-text/70'>
+        <p className='md:text-lg text-center md:text-justify px-4 text-foreground-secondary'>
           Esta à procura de um sistema profissional? Entre em contato para
           resolvermos seus problemas.{' '}
         </p>

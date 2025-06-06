@@ -25,10 +25,7 @@ const Card = forwardRef<
       whileInView='visible'
       viewport={{ once: true }}
       variants={variants}
-      className={twMerge(
-        `relative shadow-md dark:border dark:border-border rounded-xl`,
-        className
-      )}
+      className={twMerge(`relative rounded-xl bg-card border`, className)}
       ref={ref}
       {...props}
     />
@@ -71,7 +68,7 @@ const CardDescription = forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <span
-      className={twMerge(`text-sm text-primary-text/70`, className)}
+      className={twMerge(`text-sm text-foreground-secondary`, className)}
       ref={ref}
       {...props}
     />

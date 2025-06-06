@@ -31,14 +31,12 @@ export default function About({
   }, [inView, id, setActiveSection])
   return (
     <section
-      className='min-h-dvh grid place-items-center bg-primary-bg py-10 text-primary-text'
+      className='min-h-dvh grid place-items-center py-10'
       id={id}
       ref={ref}
     >
       <header>
-        <h2 className='text-center my-10 text-4xl text-primary-text'>
-          Sobre mim
-        </h2>
+        <h2 className='text-center my-10 text-4xl'>Sobre mim</h2>
       </header>
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
@@ -48,20 +46,20 @@ export default function About({
           transition: { delay: 0.1, duration: 0.4 }
         }}
         viewport={{ once: true }}
-        className='w-full max-w-7xl px-4 bg-primary-bg'
+        className='w-full max-w-7xl px-4'
       >
         <Card
           initial={{ opacity: 0, y: 200 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className='border-none shadow-none grid grid-flow-row lg:grid-flow-col bg-secondary-bg sm:bg-primary-bg'
+          className='grid grid-flow-row lg:grid-flow-col bg-card sm:bg-background'
         >
-          <div className='flex flex-col items-center'>
+          <div className='flex flex-col items-center pl-2'>
             <Image
               src={perfil}
               alt='imagem de perfil'
               width={300}
               height={300}
-              className=' m-auto rounded-xl bg-secondary-bg'
+              className='m-auto rounded-xl bg-card'
             />
           </div>
           <div>
@@ -70,7 +68,7 @@ export default function About({
                 Wellington Vieira
               </CardTitle>
               <CardDescription className='flex items-center justify-center lg:justify-normal gap-2 flex-wrap '>
-                <CodeXml className='size-5 text-button-bg' />
+                <CodeXml className='size-5 text-button' />
                 Desencolvedor Front-end{' '}
                 <strong className='text-base'>Next | TypeScript</strong>
               </CardDescription>

@@ -84,14 +84,12 @@ export default function Contact({
 
   return (
     <section
-      className='min-h-dvh grid place-items-center bg-primary-bg py-10 text-primary-text'
+      className='min-h-dvh grid place-items-center py-10'
       id={id}
       ref={ref}
     >
       <header>
-        <h2 className='text-center my-10 text-4xl text-primary-text'>
-          Contato
-        </h2>
+        <h2 className='text-center my-10 text-4xl'>Contato</h2>
       </header>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -117,7 +115,7 @@ export default function Contact({
               handleDelete={() => reset({ name: '' })}
             />
             {errors?.name && (
-              <FormMessage className='justify-self-start text-error'>
+              <FormMessage className='justify-self-start text-destructive'>
                 {errors.name?.message}
               </FormMessage>
             )}
@@ -132,7 +130,7 @@ export default function Contact({
               handleDelete={() => reset({ email: '' })}
             />
             {errors?.email && (
-              <FormMessage className='justify-self-start text-error'>
+              <FormMessage className='justify-self-start text-destructive'>
                 {errors.email?.message}
               </FormMessage>
             )}
@@ -170,14 +168,14 @@ export default function Contact({
               />
             </FormControl>
             {errors?.bodyMessage && (
-              <FormMessage className='justify-self-start text-error'>
+              <FormMessage className='justify-self-start text-destructive'>
                 {errors.bodyMessage?.message}
               </FormMessage>
             )}
           </FormField>
           <FormSubmit asChild>
             <Button
-              className='w-full text-button-text'
+              className='w-full text-button-foreground'
               type='submit'
               variant={isLoading ? 'loading' : 'default'}
             >
@@ -199,7 +197,7 @@ export default function Contact({
         </Form>
         <div className='w-1/2 max-w-[250px] h-[1px] bg-border my-2' />
         <div className='w-full max-w-[500px] grid place-items-center gap-2 p-4'>
-          <p className=' text-primary-text/70 py-2 text-sm'>
+          <p className=' text-foreground-secondary py-2 text-sm'>
             Ou se preferir, entre em contato pelas redes:
           </p>
           <Link

@@ -21,16 +21,14 @@ export default function SkillSmoothTabs() {
         transition: { delay: 0.2, duration: 0.4 }
       }}
       viewport={{ once: true }}
-      className='w-full xl:w-7xl m-auto bg-primary-bg px-4 rounded-md grid grid-cols-1 gap-2'
+      className='w-full xl:w-7xl m-auto px-4 rounded-md grid grid-cols-1 gap-2'
     >
-      <h2 className='text-4xl my-10 text-primary-text text-center'>
-        Habilidades
-      </h2>
+      <h2 className='text-4xl my-10 text-center'>Habilidades</h2>
       {skills.map((skill, i) => (
         <Card
           key={i}
           reverse={i % 2 == 0}
-          className={`relative m-auto border-none bg-secondary-bg sm:bg-primary-bg shadow-none flex-wrap flex flex-col ${
+          className={`relative m-auto sm:border-none sm:bg-background flex-wrap flex flex-col ${
             i % 2 == 0 ? 'sm:text-left' : 'sm:items-end sm:text-right'
           }`}
         >
@@ -40,14 +38,14 @@ export default function SkillSmoothTabs() {
           />
           <CardHeader>
             <CardTitle
-              className={`relative flex items-center text-primary-text gap-4 ${
+              className={`relative flex items-center gap-4 ${
                 i % 2 !== 0 && 'sm:justify-start sm:flex-row-reverse'
               }`}
             >
               <Image
                 src={skill.img}
                 alt={skill.title + ' logo'}
-                className='size-15 p-2 rounded-md dark:bg-button-text'
+                className='size-15 p-2 rounded-md dark:bg-button-foreground'
               />
               <p>{skill.title}</p>
             </CardTitle>
@@ -56,10 +54,8 @@ export default function SkillSmoothTabs() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className='text-primary-text font-montserrat'>
-              Conhecimentos estudados:
-            </p>
-            <ul className='list-disc list-inside text-left marker:text-button-bg'>
+            <p className='font-montserrat'>Conhecimentos estudados:</p>
+            <ul className='list-disc list-inside text-left marker:text-button'>
               {skill.topics?.map((topic, i) => (
                 <li key={i}>{topic}</li>
               ))}

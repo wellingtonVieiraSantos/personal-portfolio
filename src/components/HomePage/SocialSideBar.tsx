@@ -14,7 +14,7 @@ export default function SocialSideBar() {
           y: 0,
           transition: { delay: 0.5, duration: 0.3 }
         }}
-        className='absolute bottom-20 left-6 flex flex-col px-4 gap-2 border-l-4 border-button-bg'
+        className='absolute bottom-20 left-6 flex flex-col px-4 gap-2 border-l-4'
       >
         <Link
           href={'https://github.com/wellingtonVieiraSantos'}
