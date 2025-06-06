@@ -39,19 +39,24 @@ export default function About({
         <h2 className='text-center my-10 text-4xl'>Sobre mim</h2>
       </header>
       <motion.div
-        initial={{ opacity: 0, scale: 0 }}
+        initial={{ opacity: 0, y: 200 }}
         whileInView={{
           opacity: 1,
-          scale: 1,
-          transition: { delay: 0.1, duration: 0.4 }
+          y: 0,
+          transition: { delay: 0.2, duration: 0.4 }
         }}
         viewport={{ once: true }}
         className='w-full max-w-7xl px-4'
       >
         <Card
           initial={{ opacity: 0, y: 200 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className='grid grid-flow-row lg:grid-flow-col bg-card sm:bg-background'
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.2, duration: 0.4 }
+          }}
+          viewport={{ once: true }}
+          className=' grid grid-flow-row lg:grid-flow-col sm:border-none sm:bg-background'
         >
           <div className='flex flex-col items-center pl-2'>
             <Image
