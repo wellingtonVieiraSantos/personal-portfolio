@@ -74,7 +74,7 @@ export default function About({
               </CardTitle>
               <CardDescription className='flex items-center justify-center lg:justify-normal gap-2 flex-wrap '>
                 <CodeXml className='size-5 text-button' />
-                Desencolvedor Front-end{' '}
+                Desenvolvedor Front-end{' '}
                 <strong className='text-base'>Next | TypeScript</strong>
               </CardDescription>
             </CardHeader>
@@ -87,7 +87,7 @@ export default function About({
               <div className='leading-relaxed'>
                 <p>Olá, meu nome é Wellington</p>
                 <p>
-                  Me formei em Matemática e à 2 anos fiz uma transição de
+                  Me formei em Matemática e há 2 anos fiz uma transição de
                   carreira para a programação. Desde então, tenho trabalhado
                   como freelancer, criando interfaces modernas, responsivas e
                   intuitivas.
