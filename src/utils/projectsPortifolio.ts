@@ -3,8 +3,33 @@ import formNext from '../assets/formNext.webp'
 import weather from '../assets/weatherapp.webp'
 import portugueseQuiz from '../assets/portugueseQuiz.webp'
 import uiLib from '../assets/uiLib.png'
+import tudoContado from '../assets/tudoContado.png'
 
 export const projects = [
+  {
+    title: 'Tudo Contado',
+    img: tudoContado,
+    description:
+      'Web app, com foco em controle financeiro domestico com uma integração de IA para melhorar o UX, criado com repeito ao clean code, resposividade, performance e escalabilidade.',
+    stack: [
+      'Next',
+      'TypeScript',
+      'Tailwind',
+      'Radix',
+      'Lucide',
+      'React Query',
+      'Prisma',
+      'mui chart',
+      'groq-sdk',
+      'next-auth',
+      'zod',
+      'react-hook-form'
+    ],
+    links: {
+      githubCode: 'https://github.com/wellingtonVieiraSantos/tudo-contado',
+      website: 'https://tudo-contado.vercel.app/'
+    }
+  },
   {
     title: 'UI Lib',
     img: uiLib,
