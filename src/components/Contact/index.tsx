@@ -3,7 +3,7 @@ import { FormContactType } from '@/types'
 import { formContactSchema } from '@/app/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
-import { ToastContainer, toast } from 'react-toastify'
+import { Toaster, toast } from 'sonner'
 import {
   User,
   Mail,
@@ -11,11 +11,12 @@ import {
   LinkedinIcon,
   InstagramIcon
 } from 'lucide-react'
-import { useTheme } from 'next-themes'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import { Button } from '../ui/Button'
 import { useInView } from 'react-intersection-observer'
+import { useTheme } from 'next-themes'
+
 import {
   Form,
   FormControl,
@@ -48,6 +49,7 @@ export default function Contact({
     threshold: 0.5,
     triggerOnce: false
   })
+
   useEffect(() => {
     if (inView) setActiveSection(id)
   }, [inView, id, setActiveSection])
@@ -74,10 +76,25 @@ export default function Contact({
     const resJson = await response.json()
 
     if (response.ok) {
-      toast.success(resJson.success)
-      reset()
+      toast.success(
+        'O e-mail foi enviado com sucesso, em breve irei respondê-lo.',
+        {
+          classNames: {
+            icon: 'text-success'
+          }
+        }
+      )
+      /* reset() */
     } else {
-      toast.error(resJson.error || 'Erro desconhecido.')
+      toast.error(
+        resJson.error ||
+          'Um erro aconteceu ao enviar o e-mail, tente novamente mais tarde.',
+        {
+          classNames: {
+            icon: 'text-destructive'
+          }
+        }
+      )
     }
     setIsLoading(false)
   }
@@ -88,6 +105,16 @@ export default function Contact({
       id={id}
       ref={ref}
     >
+      <Toaster
+        theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
+        position='top-right'
+        toastOptions={{
+          classNames: {
+            toast:
+              '!bg-[var(--color-background)] !text-[var(--color-foreground)]'
+          }
+        }}
+      />
       <header>
         <h2 className='text-center my-10 text-4xl'>Contato</h2>
       </header>
@@ -189,11 +216,6 @@ export default function Contact({
               )}
             </Button>
           </FormSubmit>
-          <ToastContainer
-            position='top-center'
-            autoClose={3000}
-            theme={`${resolvedTheme == 'dark' ? 'dark' : 'light'}`}
-          />
         </Form>
         <div className='w-1/2 max-w-[250px] h-[1px] bg-border my-2' />
         <div className='w-full max-w-[500px] grid place-items-center gap-2 p-4'>
