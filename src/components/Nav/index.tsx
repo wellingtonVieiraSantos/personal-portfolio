@@ -44,13 +44,14 @@ export default function Nav({ activeSection }: { activeSection: string }) {
           {navLinks.map((link, i) => (
             <li
               key={i}
-              className={`relative hover:text-foreground font-montserrat flex items-center justify-center flex-1 after:absolute after:-bottom-2 after:scale-0 
-                  after:w-full after:h-[3px] after:bg-button after:transition after:duration-300 transition-colors duration-300 ${
+              className={`relative hover:text-foreground flex items-center justify-center flex-1 after:absolute after:-bottom-2 after:scale-0 
+                  after:w-full after:h-[3px] after:bg-linear-to-r after:from-button after:to-badge after:transition after:duration-300 transition-colors duration-300 ${
                     activeSection === link.path &&
                     'text-foreground after:scale-100'
                   }`}
             >
-              <Link href={'#' + link.path}>
+              <Link href={'#' + link.path} className={`flex gap-3`}>
+                <link.icon strokeWidth={1.4} />
                 <span>{link.name}</span>
               </Link>
             </li>
@@ -82,10 +83,11 @@ export default function Nav({ activeSection }: { activeSection: string }) {
                         ? '-translate-y-[18px]'
                         : 'translate-y-2'
                     } transition-all duration-200`}
+                    strokeWidth={1.3}
                   />
                 </span>
                 <span
-                  className={`font-montserrat ${
+                  className={` ${
                     activeSection === link.path
                       ? ' translate-y-1 opacity-100 text-button-foreground'
                       : ' translate-y-5 opacity-0'

@@ -23,7 +23,7 @@ export default function SkillSmoothTabs() {
       viewport={{ once: true }}
       className='w-full xl:w-7xl m-auto px-4 rounded-md grid grid-cols-1 gap-2'
     >
-      <h2 className='text-4xl my-10 text-center'>Habilidades</h2>
+      <h2 className='text-3xl my-10 text-center'>Habilidades</h2>
       {skills.map((skill, i) => (
         <Card
           key={i}

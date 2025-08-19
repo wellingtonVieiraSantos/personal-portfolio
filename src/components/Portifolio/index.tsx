@@ -38,7 +38,7 @@ export default function Portifolio({
     >
       <div className='m-auto max-w-7xl px-4 grid grid-cols-1 gap-4 '>
         <header>
-          <h2 className='text-center text-4xl my-10'>Projetos</h2>
+          <h2 className='text-center text-3xl my-10'>Projetos</h2>
         </header>
         {projects.map((project, i) => (
           <Card

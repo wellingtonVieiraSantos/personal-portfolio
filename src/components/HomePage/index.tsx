@@ -40,7 +40,7 @@ export default function HomePage({
       >
         <h1 className='text-xl md:text-2xl'>
           Olá, sou{' '}
-          <span className='leading-none block text-button text-7xl md:text-9xl mt-4'>
+          <span className='leading-none block bg-linear-to-r from-button to-badge bg-clip-text text-transparent text-7xl md:text-9xl mt-4'>
             Ton Santos
           </span>
         </h1>
@@ -53,7 +53,9 @@ export default function HomePage({
           resolvermos seus problemas.{' '}
         </p>
         <Link href='#contato'>
-          <Button size='lg'>Tem um projeto?</Button>
+          <Button size='lg' className='bg-linear-to-r from-button to-badge'>
+            Tem um projeto?
+          </Button>
         </Link>
       </motion.div>
       <SocialSideBar />

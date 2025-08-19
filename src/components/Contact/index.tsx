@@ -84,7 +84,7 @@ export default function Contact({
           }
         }
       )
-      /* reset() */
+      reset()
     } else {
       toast.error(
         resJson.error ||
@@ -116,7 +116,7 @@ export default function Contact({
         }}
       />
       <header>
-        <h2 className='text-center my-10 text-4xl'>Contato</h2>
+        <h2 className='text-center my-10 text-3xl'>Contato</h2>
       </header>
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -202,7 +202,7 @@ export default function Contact({
           </FormField>
           <FormSubmit asChild>
             <Button
-              className='w-full text-button-foreground'
+              className='w-full bg-linear-to-r from-button to-badge'
               type='submit'
               variant={isLoading ? 'loading' : 'default'}
             >

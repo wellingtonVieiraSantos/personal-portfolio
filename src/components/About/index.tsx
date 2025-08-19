@@ -36,7 +36,7 @@ export default function About({
       ref={ref}
     >
       <header>
-        <h2 className='text-center my-10 text-4xl'>Sobre mim</h2>
+        <h2 className='text-center my-10 text-3xl'>Sobre mim</h2>
       </header>
       <motion.div
         initial={{ opacity: 0, y: 200 }}
@@ -75,7 +75,9 @@ export default function About({
               <CardDescription className='flex items-center justify-center lg:justify-normal gap-2 flex-wrap '>
                 <CodeXml className='size-5 text-button' />
                 Desenvolvedor Front-end{' '}
-                <strong className='text-base'>Next | TypeScript</strong>
+                <strong className='text-base text-button'>
+                  Next | TypeScript
+                </strong>
               </CardDescription>
             </CardHeader>
             <CardContent className='text-justify gap-2'>
