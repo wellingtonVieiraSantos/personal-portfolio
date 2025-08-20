@@ -1,11 +1,11 @@
 'use client'
 import { motion } from 'motion/react'
-import { Button } from '../ui/Button'
+import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
 import { Dispatch, SetStateAction, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import SocialSideBar from './SocialSideBar'
-import { ThemeSwitch } from '../Nav/ThemeSwitch'
+import { ThemeSwitch } from '@/components/Nav/ThemeSwitch'
 
 export default function HomePage({
   id,
@@ -45,20 +45,28 @@ export default function HomePage({
           </span>
         </h1>
         <p className='text-xl md:text-2xl'>
-          Desenvolvedor Front-end |{' '}
+          Desenvolvedor de Software |{' '}
           <span className='font-montserrat text-button text-3xl'>Next.js</span>
         </p>
         <p className='md:text-lg text-center md:text-justify px-4 text-foreground-secondary'>
           Esta à procura de um sistema profissional? Entre em contato para
           resolvermos seus problemas.{' '}
         </p>
-        <Link href='#contato'>
-          <Button size='lg' className='bg-linear-to-r from-button to-badge'>
-            Tem um projeto?
-          </Button>
-        </Link>
+        <div className='flex gap-4'>
+          <Link href='#contato'>
+            <Button className='bg-linear-to-r from-button to-badge'>
+              Entre em contato
+            </Button>
+          </Link>
+          <Link href='/projetos'>
+            <Button variant='border'>Ver projetos</Button>
+          </Link>
+        </div>
       </motion.div>
       <SocialSideBar />
     </section>
   )
 }
+
+/* pagina principal, home + portifolio mini card de project que abre em modal 
+completo com carrousel de fotos, uma pagina para sobre e outra para contato */

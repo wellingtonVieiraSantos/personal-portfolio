@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/Card'
-import { projects } from '../../utils/projectsPortifolio'
+import { projects } from '../../lib/projectsPortifolio'
 import { Button } from '../ui/Button'
 import { CodeXml, PanelsTopLeft } from 'lucide-react'
 import { Dispatch, SetStateAction, useEffect } from 'react'

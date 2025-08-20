@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
-import './globals.css'
+import '../styles/globals.css'
 import { Providers } from './providers'
 import Head from 'next/head'
 

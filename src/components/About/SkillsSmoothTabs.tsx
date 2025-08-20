@@ -1,5 +1,5 @@
 'use client'
-import { skills } from '@/utils/skillsData'
+import { skills } from '@/lib/skillsData'
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import {

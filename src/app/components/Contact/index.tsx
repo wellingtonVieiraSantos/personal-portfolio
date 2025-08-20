@@ -1,6 +1,6 @@
 'use client'
 import { FormContactType } from '@/types'
-import { formContactSchema } from '@/app/validators/FormContact'
+import { formContactSchema } from '@/validators/FormContact'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
 import { Toaster, toast } from 'sonner'
@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import { Button } from '../ui/Button'
+import { Button } from '@/components/ui/Button'
 import { useInView } from 'react-intersection-observer'
 import { useTheme } from 'next-themes'
 
@@ -24,16 +24,16 @@ import {
   FormLabel,
   FormMessage,
   FormSubmit
-} from '../ui/Form'
-import { Input } from '../ui/Input'
-import { Textarea } from '../ui/Textarea'
+} from '@/components/ui/Form'
+import { Input } from '@/components/ui/Input'
+import { Textarea } from '@/components/ui/Textarea'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from '../ui/Select'
+} from '@/components/ui/Select'
 import Link from 'next/link'
 
 export default function Contact({

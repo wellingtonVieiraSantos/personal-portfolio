@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
-import { Button } from '../ui/Button'
-import { Github, LinkedinIcon } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
+import { Github, Instagram, LinkedinIcon } from 'lucide-react'
 import Link from 'next/link'
 
 export default function SocialSideBar() {
@@ -14,24 +14,27 @@ export default function SocialSideBar() {
           y: 0,
           transition: { delay: 0.5, duration: 0.3 }
         }}
-        className='absolute bottom-20 left-6 flex flex-col px-4 gap-2 border-l-4'
+        className='absolute bottom-20 left-6 flex px-4 gap-3 border-l-4'
       >
         <Link
           href={'https://github.com/wellingtonVieiraSantos'}
           target='_blank'
         >
-          <Button className='w-full'>
+          <Button variant='ghost' size='icon'>
             <Github />
-            Github
           </Button>
         </Link>
         <Link
           href={'https://www.linkedin.com/in/wellingtonsantos2022/'}
           target='_blank'
         >
-          <Button className='w-full'>
+          <Button variant='ghost' size='icon'>
             <LinkedinIcon />
-            LinkedIn
+          </Button>
+        </Link>
+        <Link href={'https://www.instagram.com/tonsantos_26/'} target='_blank'>
+          <Button variant='ghost' size='icon'>
+            <Instagram />
           </Button>
         </Link>
       </motion.div>

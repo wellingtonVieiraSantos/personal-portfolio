@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import { checkRateLimit } from './lib/rateLimit'
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   //bloqueio de multiplos envios
   const ip = req.headers.get('x-forwarded-for') || 'unknown'
 
