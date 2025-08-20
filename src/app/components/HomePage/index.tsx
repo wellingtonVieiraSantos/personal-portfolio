@@ -2,31 +2,12 @@
 import { motion } from 'motion/react'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
-import { Dispatch, SetStateAction, useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
 import SocialSideBar from './SocialSideBar'
 import { ThemeSwitch } from '@/components/Nav/ThemeSwitch'
 
-export default function HomePage({
-  id,
-  setActiveSection
-}: {
-  id: string
-  setActiveSection: Dispatch<SetStateAction<string>>
-}) {
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-    triggerOnce: false
-  })
-  useEffect(() => {
-    if (inView) setActiveSection(id)
-  }, [inView, id, setActiveSection])
+export default function HomePage() {
   return (
-    <section
-      className='relative min-h-dvh grid place-content-center'
-      id={id}
-      ref={ref}
-    >
+    <section className='relative min-h-dvh grid place-content-center' id='home'>
       <ThemeSwitch className='absolute right-4 top-2 md:hidden' />
       <motion.div
         initial={{ opacity: 0, x: -100 }}

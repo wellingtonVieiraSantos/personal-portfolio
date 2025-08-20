@@ -11,10 +11,9 @@ import {
   LinkedinIcon,
   InstagramIcon
 } from 'lucide-react'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'motion/react'
 import { Button } from '@/components/ui/Button'
-import { useInView } from 'react-intersection-observer'
 import { useTheme } from 'next-themes'
 
 import {
@@ -36,23 +35,9 @@ import {
 } from '@/components/ui/Select'
 import Link from 'next/link'
 
-export default function Contact({
-  id,
-  setActiveSection
-}: {
-  id: string
-  setActiveSection: Dispatch<SetStateAction<string>>
-}) {
+export default function Contact() {
   const [isLoading, setIsLoading] = useState(false)
   const { resolvedTheme } = useTheme()
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-    triggerOnce: false
-  })
-
-  useEffect(() => {
-    if (inView) setActiveSection(id)
-  }, [inView, id, setActiveSection])
 
   const {
     register,
@@ -100,11 +85,7 @@ export default function Contact({
   }
 
   return (
-    <section
-      className='min-h-dvh grid place-items-center py-10'
-      id={id}
-      ref={ref}
-    >
+    <section className='min-h-dvh grid place-items-center py-10' id='contact'>
       <Toaster
         theme={resolvedTheme === 'dark' ? 'dark' : 'light'}
         position='top-right'

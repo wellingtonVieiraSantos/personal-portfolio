@@ -3,6 +3,8 @@ import { Poppins, Montserrat } from 'next/font/google'
 import '../styles/globals.css'
 import { Providers } from './providers'
 import Head from 'next/head'
+import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -42,7 +44,9 @@ export default function RootLayout({
       <body
         className={`w-full min-h-dvh ${montserrat.variable} ${poppins.variable}`}
       >
+        <Nav />
         <Providers>{children}</Providers>
+        <Footer />
       </body>
     </html>
   )

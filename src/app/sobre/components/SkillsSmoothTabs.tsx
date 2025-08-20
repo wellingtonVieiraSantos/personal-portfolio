@@ -8,8 +8,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from '../ui/Card'
-import { Divider } from '../ui/Divider'
+} from '../../../components/ui/Card'
+import { Divider } from '../../../components/ui/Divider'
 
 export default function SkillSmoothTabs() {
   return (

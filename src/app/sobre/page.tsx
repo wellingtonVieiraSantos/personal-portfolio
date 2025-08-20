@@ -2,39 +2,19 @@
 import Image from 'next/image'
 import perfil from '../../assets/perfil.webp'
 import { motion } from 'motion/react'
-import SkillSmoothTabs from '../../app/sobre/components/SkillsSmoothTabs'
+import SkillSmoothTabs from './components/SkillsSmoothTabs'
 import { CodeXml } from 'lucide-react'
-import { Dispatch, SetStateAction, useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle
-} from '../ui/Card'
-import { Badge } from '../ui/Badge'
-
-export default function About({
-  id,
-  setActiveSection
-}: {
-  id: string
-  setActiveSection: Dispatch<SetStateAction<string>>
-}) {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: false
-  })
-  useEffect(() => {
-    if (inView) setActiveSection(id)
-  }, [inView, id, setActiveSection])
+} from '@/components/ui/Card'
+import { Badge } from '@/components/ui/Badge'
+export default function About() {
   return (
-    <section
-      className='min-h-dvh grid place-items-center py-10'
-      id={id}
-      ref={ref}
-    >
+    <section className='min-h-dvh grid place-items-center py-10'>
       <header>
         <h2 className='text-center my-10 text-3xl'>Sobre mim</h2>
       </header>

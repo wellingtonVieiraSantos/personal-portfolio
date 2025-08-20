@@ -6,11 +6,8 @@ import {
   CardTitle
 } from '@/components/ui/Card'
 import { Layers, MonitorSmartphone, Palette } from 'lucide-react'
-import { Dispatch, SetStateAction } from 'react'
 
-export default function Experience(
-  setActiveSection: Dispatch<SetStateAction<string>>
-) {
+export default function Experience() {
   return (
     <section
       id='experiencia'

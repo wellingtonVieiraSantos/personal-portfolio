@@ -1,39 +1,20 @@
 'use client'
-import { House, Briefcase, User, SendHorizontal } from 'lucide-react'
+import { House, Briefcase, User } from 'lucide-react'
 import Link from 'next/link'
 import { ThemeSwitch } from './ThemeSwitch'
-import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { path: 'home', name: 'Home', icon: House },
-  { path: 'sobre', name: 'Sobre mim', icon: User },
-  { path: 'projetos', name: 'Projetos', icon: Briefcase },
-  { path: 'contato', name: 'Contato', icon: SendHorizontal }
+  { path: '/', name: 'Home', icon: House },
+  { path: '/sobre', name: 'Sobre', icon: User },
+  { path: '/projetos', name: 'Projetos', icon: Briefcase }
 ]
 
-export default function Nav({ activeSection }: { activeSection: string }) {
-  const navbarRef = useRef<HTMLDivElement>(null)
-  const scrollYPos = useRef(0)
-
-  useEffect(() => {
-    const scroll = () => {
-      const currentScroll = window.scrollY
-      if (!navbarRef.current) return
-      navbarRef.current.style.transform =
-        currentScroll > scrollYPos.current
-          ? `translateY(-80px)`
-          : `translateY(0)`
-
-      scrollYPos.current = currentScroll
-    }
-    window.addEventListener('scroll', scroll)
-    return () => window.removeEventListener('scroll', scroll)
-  }, [])
-
+export default function Nav() {
+  const pathName = usePathname()
   return (
     <>
       <nav
-        ref={navbarRef}
         className='size-full md:grid grid-cols-[1fr_2fr_1fr] items-center px-10
         hidden md:fixed top-0 w-full h-20 bg-background z-10 transition duration-300'
       >
@@ -46,11 +27,10 @@ export default function Nav({ activeSection }: { activeSection: string }) {
               key={i}
               className={`relative hover:text-foreground flex items-center justify-center flex-1 after:absolute after:-bottom-2 after:scale-0 
                   after:w-full after:h-[3px] after:bg-linear-to-r after:from-button after:to-badge after:transition after:duration-300 transition-colors duration-300 ${
-                    activeSection === link.path &&
-                    'text-foreground after:scale-100'
+                    pathName === link.path && 'text-foreground after:scale-100'
                   }`}
             >
-              <Link href={'#' + link.path} className={`flex gap-3`}>
+              <Link href={link.path} className={`flex gap-3`}>
                 <link.icon strokeWidth={1.4} />
                 <span>{link.name}</span>
               </Link>
@@ -69,17 +49,14 @@ export default function Nav({ activeSection }: { activeSection: string }) {
             <li
               key={i}
               className={`relative flex-1 ${
-                activeSection === link.path && 'text-foreground'
+                pathName === link.path && 'text-foreground'
               }`}
             >
-              <Link
-                href={'#' + link.path}
-                className='grid place-items-center gap-1'
-              >
+              <Link href={link.path} className='grid place-items-center gap-1'>
                 <span className='relative inline-block z-10'>
                   <link.icon
                     className={`size-6 text-button-foreground ${
-                      activeSection === link.path
+                      pathName === link.path
                         ? '-translate-y-[18px]'
                         : 'translate-y-2'
                     } transition-all duration-200`}
@@ -88,7 +65,7 @@ export default function Nav({ activeSection }: { activeSection: string }) {
                 </span>
                 <span
                   className={` ${
-                    activeSection === link.path
+                    pathName === link.path
                       ? ' translate-y-1 opacity-100 text-button-foreground'
                       : ' translate-y-5 opacity-0'
                   } transition duration-300`}
@@ -97,7 +74,7 @@ export default function Nav({ activeSection }: { activeSection: string }) {
                 </span>
                 <div
                   className={`${
-                    activeSection === link.path ? 'absolute' : 'hidden'
+                    pathName === link.path ? 'absolute' : 'hidden'
                   } -top-10 size-17 bg-button rounded-full border-6 border-background
                       after:absolute after:w-7 after:h-5 after:bg-transparent after:-left-[32px] after:top-[23px]
                       after:rounded-tr-full after:shadow-[3px_-6px_0_0_var(--color-background)] 
