@@ -15,12 +15,12 @@ const color = [
   'bg-amber-50',
   'bg-rose-50',
   'bg-sky-50',
-  'bg-lime-50',
-  'bg-fuchsia-50',
-  'bg-red-50',
   'bg-yellow-50',
-  'bg-blue-50',
-  'bg-emerald-50'
+  'bg-purple-50',
+  'bg-indigo-50',
+  'bg-orange-50',
+  'bg-fuchsia-50',
+  'bg-cyan-50'
 ]
 
 export default function SkillSmoothTabs() {
@@ -40,10 +40,14 @@ export default function SkillSmoothTabs() {
         Para melhor concretizar os projetos, uso as ferramentas mais atuais,
         sempre atualizando meus conhecimentos.
       </span>
-      <ScrollArea className='w-full p-2 border-none'>
+      <ScrollArea className='w-full border-none'>
         <div className='w-full flex gap-4 pb-2'>
           {skills.map((skill, i) => (
-            <Card key={i} className={`w-max flex flex-col ${color[i]} `}>
+            <Card
+              key={i}
+              reverse
+              className={`w-max max-w-[350px] flex flex-col ${color[i]} dark:bg-card`}
+            >
               <CardHeader>
                 <CardTitle className={`relative flex items-center gap-4`}>
                   <Image
@@ -53,9 +57,7 @@ export default function SkillSmoothTabs() {
                   />
                   <p>{skill.title}</p>
                 </CardTitle>
-                <CardDescription className='max-w-xl'>
-                  {skill.content}
-                </CardDescription>
+                <CardDescription>{skill.content}</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className='font-montserrat'>Conhecimentos estudados:</p>
