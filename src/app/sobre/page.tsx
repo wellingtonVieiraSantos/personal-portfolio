@@ -14,10 +14,7 @@ import {
 import { Badge } from '@/components/ui/Badge'
 export default function About() {
   return (
-    <section className='min-h-dvh grid place-items-center py-10'>
-      <header>
-        <h2 className='text-center my-10 text-3xl'>Sobre mim</h2>
-      </header>
+    <section className='min-h-dvh grid place-items-center py-4'>
       <motion.div
         initial={{ opacity: 0, y: 200 }}
         whileInView={{
@@ -36,7 +33,7 @@ export default function About() {
             transition: { delay: 0.2, duration: 0.4 }
           }}
           viewport={{ once: true }}
-          className=' grid grid-flow-row lg:grid-flow-col sm:border-none sm:bg-background'
+          className=' grid grid-flow-row lg:grid-flow-col mt-10 lg:mt-20 bg-sky-50 dark:bg-card'
         >
           <div className='flex flex-col items-center pl-2'>
             <Image
@@ -44,14 +41,12 @@ export default function About() {
               alt='imagem de perfil'
               width={300}
               height={300}
-              className='m-auto rounded-xl bg-card'
+              className='m-auto rounded-xl'
             />
           </div>
           <div>
             <CardHeader className='text-center'>
-              <CardTitle className='text-xl text-center lg:text-left'>
-                Wellington Vieira
-              </CardTitle>
+              <CardTitle className='text-2xl lg:text-left'>Sobre mim</CardTitle>
               <CardDescription className='flex items-center justify-center lg:justify-normal gap-2 flex-wrap '>
                 <CodeXml className='size-5 text-button' />
                 Desenvolvedor Front-end{' '}
