@@ -9,7 +9,7 @@ const Textarea = forwardRef<
     <textarea
       ref={ref}
       className={twMerge(
-        `border w-full px-4 py-2
+        `border w-full px-4 py-2 text-sm
         resize-none scrollbar-custom rounded placeholder:text-foreground-secondary`,
         className
       )}

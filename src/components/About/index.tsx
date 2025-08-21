@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import perfil from '../../assets/perfil.webp'
 import { motion } from 'motion/react'
-import SkillSmoothTabs from '../../app/sobre/components/SkillsSmoothTabs'
+import SkillSmoothTabs from '../../app/sobre/_components/SkillsSmoothTabs'
 import { CodeXml } from 'lucide-react'
 import { Dispatch, SetStateAction, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'

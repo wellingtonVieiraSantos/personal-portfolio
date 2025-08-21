@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import perfil from '../../assets/perfil.webp'
 import { motion } from 'motion/react'
-import SkillSmoothTabs from './components/SkillsSmoothTabs'
+import SkillSmoothTabs from './_components/SkillsSmoothTabs'
 import { CodeXml } from 'lucide-react'
 import {
   Card,

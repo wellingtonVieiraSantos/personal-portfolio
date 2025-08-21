@@ -14,14 +14,14 @@ export default function Experience() {
       className='grid place-items-center gap-3 p-3 py-10 '
     >
       <div className='w-full max-w-7xl text-center md:text-left'>
-        <h2 className='text-3xl'>Experiência</h2>
+        <h2 className='text-3xl'>Criando experiências digitais</h2>
         <p className='text-sm py-2 text-foreground-secondary'>
           Sou especializado em desenvolver aplicações web fluídas, responsivas e
           intuitivas.
         </p>
       </div>
       <div className='w-full max-w-7xl flex flex-col md:flex-row gap-2 justify-between'>
-        <Card className='flex-1 p-2'>
+        <Card className='flex-1 p-2 bg-sky-50 dark:bg-card'>
           <CardHeader>
             <CardTitle className='flex items-center gap-4 text-lg'>
               <MonitorSmartphone />
@@ -42,7 +42,7 @@ export default function Experience() {
             </ul>
           </CardContent>
         </Card>
-        <Card className='flex-1 p-2'>
+        <Card className='flex-1 p-2 bg-green-50 dark:bg-card'>
           <CardHeader>
             <CardTitle className='flex items-center gap-4 text-lg'>
               <Layers />
@@ -66,7 +66,7 @@ export default function Experience() {
             </ul>
           </CardContent>
         </Card>
-        <Card className='flex-1 p-2'>
+        <Card className='flex-1 p-2 bg-fuchsia-50 dark:bg-card'>
           <CardHeader>
             <CardTitle className='flex items-center gap-4 text-lg'>
               <Palette />

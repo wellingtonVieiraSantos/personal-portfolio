@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
-import { checkRateLimit } from './lib/rateLimit'
+import { checkRateLimit } from './_lib/rateLimit'
 
 export async function POST(req: NextRequest) {
   //bloqueio de multiplos envios
