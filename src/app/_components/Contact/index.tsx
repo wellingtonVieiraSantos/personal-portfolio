@@ -86,7 +86,7 @@ export default function Contact() {
 
   return (
     <section
-      className='min-h-dvh grid place-items-center p-3 py-10'
+      className='min-h-dvh grid place-items-center p-3 pb-10'
       id='contact'
     >
       <Toaster

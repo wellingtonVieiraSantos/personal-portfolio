@@ -41,7 +41,7 @@ export default function SkillSmoothTabs() {
         sempre atualizando meus conhecimentos.
       </span>
       <ScrollArea className='w-full border-none'>
-        <div className='w-full flex gap-4 pb-2'>
+        <div className='w-full flex gap-4 pb-3'>
           {skills.map((skill, i) => (
             <Card
               key={i}
