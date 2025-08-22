@@ -26,7 +26,7 @@ const color = [
 
 export default function Projects() {
   return (
-    <section className='size-full min-h-dvh grid place-content-center py-5'>
+    <section className='size-full min-h-dvh grid place-content-center py-5 overflow-hidden'>
       <div className='m-auto max-w-7xl p-3 grid grid-cols-1 gap-4'>
         <header className='mt-10 lg:mt-20 text-center lg:text-left p-3'>
           <h2 className='text-3xl'>Principais Projetos</h2>

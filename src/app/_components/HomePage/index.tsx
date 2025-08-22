@@ -8,7 +8,6 @@ import { Code, MessageCircleMore } from 'lucide-react'
 export default function HomePage() {
   return (
     <section className='relative min-h-dvh grid place-content-center'>
-      {/* <ThemeSwitch className='absolute right-4 top-2 md:hidden' /> */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         animate={{

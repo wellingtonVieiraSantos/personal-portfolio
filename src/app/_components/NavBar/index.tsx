@@ -1,5 +1,5 @@
 'use client'
-import { House, Briefcase, User } from 'lucide-react'
+import { House, Briefcase, User, Sun, Moon } from 'lucide-react'
 import Link from 'next/link'
 import { Switch } from '../../../components/ui/Switch'
 import { useNavBar } from './hooks/use-navBar'
@@ -95,10 +95,22 @@ export default function NavBar() {
                       after:rounded-tr-full after:shadow-[3px_-6px_0_0_var(--color-background)] 
                       before:absolute before:w-7 before:h-5 before:bg-transparent before:-right-[32px] before:top-[23px]
                       before:rounded-tl-full before:shadow-[-3px_-6px_0_0_var(--color-background)]`}
-                ></div>
+                />
               </Link>
             </li>
           ))}
+          <li
+            className='flex-1 grid place-items-center cursor-pointer cursor rounded-full scale-110'
+            onClick={toggleTheme}
+          >
+            {resolvedTheme === 'dark' ? (
+              <Sun strokeWidth={1.2} />
+            ) : (
+              <Moon strokeWidth={1.2} />
+            )}
+
+            <span className=''>Modo</span>
+          </li>
         </ul>
       </nav>
     </>
