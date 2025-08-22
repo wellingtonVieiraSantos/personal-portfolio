@@ -33,7 +33,7 @@ export default function HomePage() {
           resolvermos seus problemas.{' '}
         </p>
         <div className='flex gap-4'>
-          <Link href='#contato'>
+          <Link href='#contact'>
             <Button className='bg-linear-to-r from-button to-badge'>
               Entre em contato
               <MessageCircleMore />
