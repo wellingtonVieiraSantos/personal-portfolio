@@ -15,51 +15,60 @@ import { Badge } from '@/components/ui/Badge'
 import Link from 'next/link'
 import Image from 'next/image'
 
+const color = [
+  'bg-green-50',
+  'bg-rose-50',
+  'bg-sky-50',
+  'bg-emerald-50',
+  'bg-purple-50',
+  'bg-indigo-50'
+]
+
 export default function Projects() {
   return (
-    <section className='size-full min-h-dvh grid place-content-center py-4'>
-      <div className='m-auto max-w-7xl px-4 grid grid-cols-1 gap-4 '>
-        <header>
-          <h2 className='text-center text-3xl my-10'>Projetos</h2>
+    <section className='size-full min-h-dvh grid place-content-center py-5'>
+      <div className='m-auto max-w-7xl p-3 grid grid-cols-1 gap-4'>
+        <header className='mt-10 lg:mt-20 text-center lg:text-left p-3'>
+          <h2 className='text-3xl'>Principais Projetos</h2>
+          <p className='text-foreground-secondary'>
+            Buscamos sempre criar projetos com as tecnologias mais recentes e
+            sempre com foco no cliente e no usuário.
+          </p>
         </header>
         {projects.map((project, i) => (
           <Card
             key={i}
             reverse={i % 2 == 0}
-            className='sm:border-none sm:bg-background grid grid-cols-1 sm:grid-cols-2 place-items-center'
+            className={` grid grid-cols-1 lg:grid-cols-2 place-items-center overflow-hidden ${color[i]} dark:bg-card`}
           >
             <Image
               src={project.img}
               alt={project.title}
-              className={`sm:size-[90%] opacity-50 hover:opacity-100 transition duration-300 object-cover object-center ${
-                i % 2 == 0 && 'sm:order-1'
-              } rounded-lg`}
+              className={`w-full opacity-50 hover:opacity-100 transition duration-300 ${
+                i % 2 == 0 && 'lg:order-1'
+              }`}
             />
-            <div className={`flex flex-col ${i % 2 !== 0 && 'sm:items-end'}`}>
-              <CardHeader className={`${i % 2 !== 0 && 'sm:text-right'}`}>
+            <div className={`flex flex-col`}>
+              <CardHeader className={`${i % 2 !== 0 && 'lg:text-right'}`}>
                 <CardTitle className='text-xl'>{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <h3 className={`${i % 2 !== 0 && 'sm:text-right'}`}>Stack</h3>
-                <div className='flex gap-2 flex-wrap'>
+              <CardContent className={`${i % 2 !== 0 && 'lg:items-end'}`}>
+                <h3>Stack</h3>
+                <div className={`flex gap-2 flex-wrap `}>
                   {project.stack.map((stack, i) => (
                     <Badge key={i}>{stack}</Badge>
                   ))}
                 </div>
               </CardContent>
-              <CardFooter
-                className={`flex-col sm:flex-row ${
-                  i % 2 === 0 && 'sm:justify-normal'
-                }`}
-              >
+              <CardFooter className={`flex-col lg:flex-row gap-3`}>
                 {project.links.githubCode && (
                   <Link
                     href={project.links.githubCode}
                     target='_blank'
-                    className='w-full sm:w-fit'
+                    className='flex-1 w-full'
                   >
-                    <Button className='w-full sm:px-10'>
+                    <Button className='w-full bg-gradient-to-r from-button to-badge'>
                       <CodeXml />
                       Github
                     </Button>
@@ -69,9 +78,9 @@ export default function Projects() {
                   <Link
                     href={project.links.website}
                     target='_blank'
-                    className='w-full sm:w-fit'
+                    className='flex-1 w-full'
                   >
-                    <Button variant='border' className='w-full sm:px-10'>
+                    <Button variant='border' className='w-full'>
                       <PanelsTopLeft />
                       Site
                     </Button>

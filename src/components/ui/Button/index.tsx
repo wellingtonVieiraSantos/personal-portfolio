@@ -38,7 +38,7 @@ const Button = forwardRef<
     return (
       <motion.button
         whileHover={{
-          scale: 1.05
+          scale: 1.02
         }}
         className={twMerge(
           `w-max relative flex items-center justify-center rounded cursor-pointer transition-color duration-300
