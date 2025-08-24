@@ -1,4 +1,4 @@
-import criatividadeEmMatematica from '../assets/criatividadeEmMatematica.webp'
+import criatividadeEmMatematica from '../assets/criatividadeEmMatematica.png'
 import formNext from '../assets/formNext.webp'
 import weather from '../assets/weatherapp.webp'
 import portugueseQuiz from '../assets/portugueseQuiz.webp'
