@@ -22,28 +22,24 @@ export default function ProjectOverview() {
           para problemas.
         </p>
         <Link href={'/projetos'}>
-          <Button
-            variant='border'
-            className='justify-self-center lg:justify-self-end my-2'
-          >
+          <Button className='justify-self-center lg:justify-self-end my-2 bg-gradient-to-r from-button to-badge'>
             Ver todos os projetos
             <ArrowUpRight />
           </Button>
         </Link>
       </div>
-      <Carousel className='size-full max-w-lg border-none'>
+      <Carousel className='size-full max-w-4xl border-none'>
         <CarouselContent>
           {projects.slice(0, 3).map((project, i) => (
             <CarouselItem
               key={project.title}
-              className='text-balance border rounded-lg overflow-hidden flex flex-col'
+              className='relative text-balance border rounded-lg overflow-hidden flex flex-col'
             >
               <Image
                 src={project.img}
                 alt={project.title}
                 width={1900}
                 height={900}
-                className='w-full flex-1 opacity-80'
               />
               <div
                 className={`p-4 grid gap-1 ${
@@ -52,7 +48,7 @@ export default function ProjectOverview() {
                     : i === 1
                     ? 'bg-rose-50'
                     : 'bg-teal-50'
-                } dark:bg-card border-t`}
+                } lg:absolute dark:bg-card border-t bottom-0`}
               >
                 <h3 className='text-xl'>{project.title}</h3>
                 <span className='line-clamp-1 text-sm text-foreground-secondary'>
