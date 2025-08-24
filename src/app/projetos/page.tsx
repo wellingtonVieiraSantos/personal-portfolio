@@ -28,9 +28,9 @@ export default function Projects() {
   return (
     <section className='size-full min-h-dvh grid place-content-center py-5 overflow-hidden'>
       <div className='m-auto max-w-7xl p-3 grid grid-cols-1 gap-4'>
-        <header className='mt-10 lg:mt-20 text-center lg:text-left p-3'>
+        <header className='lg:mt-20 text-center lg:text-left p-3'>
           <h2 className='text-3xl'>Principais Projetos</h2>
-          <p className='text-foreground-secondary'>
+          <p className='text-sm text-foreground-secondary'>
             Buscamos sempre criar projetos com as tecnologias mais recentes e
             sempre com foco no cliente e no usuário.
           </p>
@@ -48,7 +48,7 @@ export default function Projects() {
                 i % 2 == 0 && 'lg:order-1'
               }`}
             />
-            <div className={`flex flex-col`}>
+            <div className={`h-full flex flex-col justify-evenly`}>
               <CardHeader className={`${i % 2 !== 0 && 'lg:text-right'}`}>
                 <CardTitle className='text-xl'>{project.title}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>

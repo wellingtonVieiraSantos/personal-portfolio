@@ -33,7 +33,7 @@ export default function About() {
             transition: { delay: 0.2, duration: 0.4 }
           }}
           viewport={{ once: true }}
-          className=' grid grid-flow-row lg:grid-flow-col mt-10 lg:mt-20 bg-sky-50 dark:bg-card'
+          className=' grid grid-flow-row lg:grid-flow-col lg:mt-20 bg-sky-50 dark:bg-card'
         >
           <div className='flex flex-col items-center pl-2'>
             <Image
@@ -41,7 +41,7 @@ export default function About() {
               alt='imagem de perfil'
               width={300}
               height={300}
-              className='m-auto rounded-xl'
+              className='size-55 lg:size-75 m-auto rounded-full lg:rounded-xl'
             />
           </div>
           <div>
