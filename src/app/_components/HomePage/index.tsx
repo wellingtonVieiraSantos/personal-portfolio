@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'motion/react'
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
 import SocialSideBar from './SocialSideBar'
@@ -8,13 +7,7 @@ import { Code, MessageCircleMore } from 'lucide-react'
 export default function HomePage() {
   return (
     <section className='relative min-h-dvh grid place-content-center'>
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        animate={{
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.5, opacity: 'linear', ease: 'easeOut' }
-        }}
+      <div
         className='max-w-[1200px] md:pl-10 px-2 flex flex-col items-center md:items-start
          md:text-left text-center gap-10 md:border-l-4 border-border -mt-10 md:mt-0'
       >
@@ -46,7 +39,7 @@ export default function HomePage() {
             </Button>
           </Link>
         </div>
-      </motion.div>
+      </div>
       <SocialSideBar />
     </section>
   )

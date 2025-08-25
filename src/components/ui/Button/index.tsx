@@ -1,5 +1,4 @@
 import { Check, X } from 'lucide-react'
-import { motion } from 'motion/react'
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -11,7 +10,8 @@ const sizeClasses = {
 }
 
 const variantClasses = {
-  default: 'bg-button text-button-foreground hover:bg-button/70',
+  default:
+    'bg-button text-button-foreground bg-gradiente-to-r from-button to-badge hover:scale-102 hover:from-badge hover:to-button',
   border: 'border hover:border-foreground',
   ghost: 'hover:bg-button-ghost hover:text-button-ghost-foreground',
   link: ' after:absolute after:bottom-1 after:w-0 after:h-[1px] after:bg-foreground hover:after:w-full after:transition-all after:duration-300',
@@ -27,21 +27,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: keyof typeof variantClasses
 }
 
-const Button = forwardRef<
-  HTMLButtonElement,
-  React.ComponentProps<typeof motion.button> & ButtonProps
->(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { size = 'sm', variant = 'default', className, children, ...props },
     ref
   ) => {
     return (
-      <motion.button
-        whileHover={{
-          scale: 1.02
-        }}
+      <button
         className={twMerge(
-          `w-max relative flex items-center justify-center rounded cursor-pointer transition-color duration-300
+          `w-max relative flex items-center justify-center rounded cursor-pointer transition duration-300 active:scale-98
            disabled:bg-disabled disabled:cursor-not-allowed`,
           sizeClasses[size],
           variantClasses[variant],
@@ -58,7 +52,7 @@ const Button = forwardRef<
         {variant === 'success' && <Check />}
         {variant === 'error' && <X />}
         {children}
-      </motion.button>
+      </button>
     )
   }
 )

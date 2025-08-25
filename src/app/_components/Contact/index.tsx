@@ -12,7 +12,6 @@ import {
   InstagramIcon
 } from 'lucide-react'
 import { useState } from 'react'
-import { motion } from 'motion/react'
 import { Button } from '@/components/ui/Button'
 import { useTheme } from 'next-themes'
 
@@ -99,16 +98,7 @@ export default function Contact() {
           }
         }}
       />
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          transition: { delay: 0.2, duration: 0.4 }
-        }}
-        viewport={{ once: true }}
-        className='size-full max-w-7xl bg-amber-50 dark:bg-card grid grid-cols-1 lg:grid-cols-2 place-items-center border rounded-lg overflow-hidden'
-      >
+      <div className='size-full max-w-7xl bg-amber-50 dark:bg-card grid grid-cols-1 lg:grid-cols-2 place-items-center border rounded-lg overflow-hidden'>
         <div className='size-full hidden lg:flex flex-col items-center justify-center p-10 gap-6'>
           <h2 className='text-3xl text-button'>
             Podemos transformar suas idéias em realidade.
@@ -225,12 +215,7 @@ export default function Contact() {
               target='_blank'
               className='w-full'
             >
-              <Button
-                whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.02 }}
-                variant='border'
-                className='w-full'
-              >
+              <Button variant='border' className='w-full'>
                 <LinkedinIcon />
                 LinkedIn
               </Button>
@@ -240,19 +225,14 @@ export default function Contact() {
               target='_blank'
               className='w-full'
             >
-              <Button
-                whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.02 }}
-                variant='border'
-                className='w-full'
-              >
+              <Button variant='border' className='w-full'>
                 <InstagramIcon />
                 Instagram
               </Button>
             </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

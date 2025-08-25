@@ -1,7 +1,6 @@
 'use client'
 import { skills } from '@/lib/skillsData'
 import Image from 'next/image'
-import { motion } from 'motion/react'
 import {
   Card,
   CardContent,
@@ -25,16 +24,7 @@ const color = [
 
 export default function SkillSmoothTabs() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { delay: 0.2, duration: 0.4 }
-      }}
-      viewport={{ once: true }}
-      className='w-full max-w-7xl m-auto px-4 grid grid-cols-1 gap-2 my-8'
-    >
+    <div className='w-full max-w-7xl m-auto px-4 grid grid-cols-1 gap-2 my-8'>
       <h2 className='text-3xl text-center lg:text-left'>Minhas Habilidades</h2>
       <span className='text-sm text-foreground-secondary'>
         Para melhor concretizar os projetos, uso as ferramentas mais atuais,
@@ -45,7 +35,6 @@ export default function SkillSmoothTabs() {
           {skills.map((skill, i) => (
             <Card
               key={i}
-              reverse
               className={`w-max max-w-[350px] flex flex-col ${color[i]} dark:bg-card`}
             >
               <CardHeader>
@@ -71,6 +60,6 @@ export default function SkillSmoothTabs() {
           ))}
         </div>
       </ScrollArea>
-    </motion.div>
+    </div>
   )
 }

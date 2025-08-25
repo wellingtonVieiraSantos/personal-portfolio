@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import perfil from '../../assets/perfil.webp'
-import { motion } from 'motion/react'
 import SkillSmoothTabs from './_components/SkillsSmoothTabs'
 import { CodeXml } from 'lucide-react'
 import {
@@ -15,26 +14,8 @@ import { Badge } from '@/components/ui/Badge'
 export default function About() {
   return (
     <section className='min-h-dvh grid place-items-center py-4'>
-      <motion.div
-        initial={{ opacity: 0, y: 200 }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          transition: { delay: 0.2, duration: 0.4 }
-        }}
-        viewport={{ once: true }}
-        className='w-full max-w-7xl px-4'
-      >
-        <Card
-          initial={{ opacity: 0, y: 200 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.2, duration: 0.4 }
-          }}
-          viewport={{ once: true }}
-          className=' grid grid-flow-row lg:grid-flow-col lg:mt-20 bg-sky-50 dark:bg-card'
-        >
+      <div className='w-full max-w-7xl px-4'>
+        <Card className=' grid grid-flow-row lg:grid-flow-col lg:mt-20 bg-sky-50 dark:bg-card'>
           <div className='flex flex-col items-center pl-2'>
             <Image
               src={perfil}
@@ -85,7 +66,7 @@ export default function About() {
             </CardContent>
           </div>
         </Card>
-      </motion.div>
+      </div>
       <SkillSmoothTabs />
     </section>
   )

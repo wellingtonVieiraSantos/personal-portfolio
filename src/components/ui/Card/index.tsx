@@ -1,36 +1,17 @@
-import { motion } from 'motion/react'
 import { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-const Card = forwardRef<
-  HTMLDivElement,
-  React.ComponentProps<typeof motion.div> & { reverse?: boolean }
->(({ className, reverse = false, ...props }, ref) => {
-  const variants = {
-    hidden: (reverse: boolean) => ({
-      opacity: 0,
-      x: reverse ? 200 : -200
-    }),
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { delay: 0.5, duration: 0.5 }
-    }
+const Card = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        className={twMerge(`relative rounded-xl bg-card border`, className)}
+        ref={ref}
+        {...props}
+      />
+    )
   }
-
-  return (
-    <motion.div
-      custom={reverse}
-      initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true }}
-      variants={variants}
-      className={twMerge(`relative rounded-xl bg-card border`, className)}
-      ref={ref}
-      {...props}
-    />
-  )
-})
+)
 
 Card.displayName = 'Card'
 
