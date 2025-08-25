@@ -38,7 +38,6 @@ export default function Projects() {
         {projects.map((project, i) => (
           <Card
             key={i}
-            reverse={i % 2 == 0}
             className={` grid grid-cols-1 lg:grid-cols-2 place-items-center overflow-hidden ${color[i]} dark:bg-card`}
           >
             <Image

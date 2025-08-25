@@ -45,7 +45,15 @@ export const projects = [
     img: criatividadeEmMatematica,
     description:
       'Site, no formato edital, feito para promover um curso de nível superior para professores de matemática. Criado de forma totalmente responsiva e performática.',
-    stack: ['React', 'TypeScript', 'Tailwind', 'React Router Dom v6', 'Vite'],
+    stack: [
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'React Router Dom v6',
+      'Vite',
+      'Radix',
+      'Sonner'
+    ],
     links: {
       githubCode:
         'https://github.com/wellingtonVieiraSantos/criatividade-em-matematica',
