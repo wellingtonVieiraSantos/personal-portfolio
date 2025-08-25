@@ -28,12 +28,14 @@ export default function ProjectOverview() {
           </Button>
         </Link>
       </div>
-      <Carousel className='size-full max-w-4xl border-none'>
+      <Carousel className='size-full max-w-4xl border-0 dark:border shadow dark:shadow-none rounded-lg'>
         <CarouselContent>
           {projects.slice(0, 3).map((project, i) => (
             <CarouselItem
               key={project.title}
-              className='relative text-balance border rounded-lg overflow-hidden flex flex-col'
+              className={`relative text-balance overflow-hidden flex flex-col dark:bg-card ${
+                i === 0 ? 'bg-indigo-50' : i === 1 ? 'bg-rose-50' : 'bg-teal-50'
+              }`}
             >
               <Image
                 src={project.img}
@@ -42,13 +44,13 @@ export default function ProjectOverview() {
                 height={900}
               />
               <div
-                className={`p-4 grid gap-1 ${
+                className={`p-4 grid gap-1 lg:absolute dark:bg-card border-t bottom-0 ${
                   i === 0
                     ? 'bg-indigo-50'
                     : i === 1
                     ? 'bg-rose-50'
                     : 'bg-teal-50'
-                } lg:absolute dark:bg-card border-t bottom-0`}
+                }`}
               >
                 <h3 className='text-xl'>{project.title}</h3>
                 <span className='line-clamp-1 text-sm text-foreground-secondary'>

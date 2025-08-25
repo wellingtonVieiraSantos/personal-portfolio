@@ -14,20 +14,20 @@ const Switch = forwardRef<
       ref={ref}
       {...props}
       className={twMerge(
-        `relative w-26 h-7 rounded-full text-foreground-secondary
+        `relative w-14 h-7 rounded-full text-foreground-secondary
          border transition-colors duration-300 cursor-pointer text-[12px]
          disabled:bg-disabled disabled:cursor-not-allowed`,
         className
       )}
     >
-      <SunDim className='absolute left-3.5 top-0.5' />
-      <Moon className='absolute right-3.5 top-0.5' />
+      <SunDim size={18} className='absolute left-1 top-1' />
+      <Moon size={18} className='absolute right-1 top-1' />
       <SwitchRadix.Thumb
-        className='absolute w-13 h-full left-0 grid place-content-center
-       bg-button text-button-foreground data-[state=checked]:translate-x-13
-        top-1/2 -translate-y-1/2 transform transition duration-300 rounded-full group'
+        className='absolute size-6.5 left-0 grid place-content-center
+       bg-button text-button-foreground data-[state=checked]:translate-x-7
+        -translate-y-1/2 transform transition duration-300 rounded-full group'
       >
-        {resolvedTheme === 'dark' ? <MoonStar /> : <Sun />}
+        {resolvedTheme === 'dark' ? <MoonStar size={18} /> : <Sun size={18} />}
       </SwitchRadix.Thumb>
       {children}
     </SwitchRadix.Root>

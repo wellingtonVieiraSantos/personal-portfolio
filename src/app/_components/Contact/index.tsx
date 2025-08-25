@@ -98,7 +98,10 @@ export default function Contact() {
           }
         }}
       />
-      <div className='size-full max-w-7xl bg-amber-50 dark:bg-card grid grid-cols-1 lg:grid-cols-2 place-items-center border rounded-lg overflow-hidden'>
+      <div
+        className='size-full max-w-7xl bg-amber-50 dark:bg-card grid grid-cols-1 lg:grid-cols-2 place-items-center
+         border-0 dark:border shadow dark:shadow-none rounded-lg overflow-hidden'
+      >
         <div className='size-full hidden lg:flex flex-col items-center justify-center p-10 gap-6'>
           <h2 className='text-3xl text-button'>
             Podemos transformar suas idéias em realidade.

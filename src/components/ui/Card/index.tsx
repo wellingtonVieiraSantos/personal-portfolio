@@ -5,7 +5,10 @@ const Card = forwardRef<HTMLDivElement, React.ComponentProps<'div'>>(
   ({ className, ...props }, ref) => {
     return (
       <div
-        className={twMerge(`relative rounded-xl bg-card border`, className)}
+        className={twMerge(
+          `relative rounded-xl bg-card border-0 dark:border shadow dark:shadow-none`,
+          className
+        )}
         ref={ref}
         {...props}
       />
