@@ -21,7 +21,7 @@ export default function HomePage() {
           Desenvolvedor de Software |{' '}
           <span className='font-montserrat text-button text-3xl'>Next.js</span>
         </p>
-        <p className='md:text-lg text-center md:text-justify px-4 text-foreground-secondary'>
+        <p className='md:text-lg text-center md:text-justify text-foreground-secondary'>
           Esta à procura de um sistema profissional? Entre em contato para
           resolvermos seus problemas.{' '}
         </p>
